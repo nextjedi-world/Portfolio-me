@@ -12,6 +12,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     
     steps:
       - name: Checkout code
@@ -30,7 +31,8 @@ jobs:
         run: npm run lint --if-present
 
       - name: Run tests
-        run: npm test --if-present --watch=false --browsers=ChromeHeadless
+        timeout-minutes: 5
+        run: npm test -- --watch=false --browsers=ChromeHeadlessCI
 
       - name: Build application
         run: npm run build
