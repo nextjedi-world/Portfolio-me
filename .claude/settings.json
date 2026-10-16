@@ -1,0 +1,41 @@
+{
+  "extraKnownMarketplaces": {
+    "nextjedi": {
+      "source": {
+        "source": "github",
+        "repo": "nextjedi/platform"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "nextjedi-core@nextjedi": true,
+    "nextjedi-web@nextjedi": true
+  },
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:nextjedi.com)",
+      "WebFetch(domain:www.nextjedi.dev)",
+      "WebFetch(domain:nextjedi.in)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "Bash(make:*)",
+      "Bash(npm run:*)",
+      "Bash(npm ci)",
+      "Bash(npx ng:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(rm -rf *)",
+      "Bash(npm publish *)"
+    ]
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json"
+}

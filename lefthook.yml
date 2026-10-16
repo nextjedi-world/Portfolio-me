@@ -1,0 +1,8 @@
+# Git hooks (https://lefthook.dev). Installed by `make setup`.
+commit-msg:
+  commands:
+    conventional-commit:
+      run: >-
+        head -n 1 {1} | grep -Eq
+        '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9._/-]+\))?!?: .+'
+        || (echo 'Commit message must be a conventional commit, for example: feat: add section' && exit 1)
