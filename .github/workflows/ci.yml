@@ -1,0 +1,25 @@
+# Inline copy of nextjedi/platform ci-web.yml: the platform repo is private, so a public
+# repo cannot call its reusable workflows. Runs `make verify`.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: verify (web)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: make verify

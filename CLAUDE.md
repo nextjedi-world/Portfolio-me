@@ -1,6 +1,20 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Personal portfolio site for Arunabh Priyadarshi, Angular 20 standalone components, deployed to Vercel.
+This repo is likely to be archived; only minimal platform adoption has been done (see Platform below).
+
+## Platform (NextJedi)
+Follows the repo contract in nextjedi/platform `docs/CONTRACTS.md`. `make verify` must pass before finishing.
+
+| Command | What it does |
+|---|---|
+| `make setup` | `npm ci` and install lefthook hooks |
+| `make dev` | `npm start` (ng serve) |
+| `make verify` | typecheck + unit tests (Karma, headless Chrome) + production build |
+| `make e2e` | no e2e suite here (no-op) |
+
+No linter or formatter is configured; `make verify` has no lint step. Commits use conventional commits.
+CI is `.github/workflows/ci.yml` (inline, because the platform repo is private); deploy is `.github/workflows/deploy.yml`.
 
 ## Project Overview
 
