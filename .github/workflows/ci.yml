@@ -1,4 +1,4 @@
-# Inline copy of nextjedi/platform ci-web.yml: the platform repo is private, so a public
+# Inline copy of nextjedi-world/platform ci-web.yml: the platform repo is private, so a public
 # repo cannot call its reusable workflows. Runs `make verify`.
 name: ci
 

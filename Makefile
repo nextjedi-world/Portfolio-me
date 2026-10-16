@@ -1,4 +1,4 @@
-# Repo contract (nextjedi/platform docs/CONTRACTS.md):
+# Repo contract (nextjedi-world/platform docs/CONTRACTS.md):
 #   make setup   install dependencies
 #   make dev     run locally
 #   make verify  typecheck + unit tests + build (no linter configured; see CLAUDE.md)

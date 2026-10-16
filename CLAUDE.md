@@ -4,7 +4,7 @@ Personal portfolio site for Arunabh Priyadarshi, Angular 20 standalone component
 This repo is likely to be archived; only minimal platform adoption has been done (see Platform below).
 
 ## Platform (NextJedi)
-Follows the repo contract in nextjedi/platform `docs/CONTRACTS.md`. `make verify` must pass before finishing.
+Follows the repo contract in nextjedi-world/platform `docs/CONTRACTS.md`. `make verify` must pass before finishing.
 
 | Command | What it does |
 |---|---|
