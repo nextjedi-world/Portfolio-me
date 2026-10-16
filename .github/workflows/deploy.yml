@@ -49,6 +49,8 @@ jobs:
 
       - name: Deploy to Vercel (Preview)
         if: github.event_name == 'pull_request'
+        # A preview that cannot deploy (rotated/invalid Vercel secrets, fork PR) must not block the PR.
+        continue-on-error: true
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
