@@ -40,19 +40,7 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
                 <!-- Default navigation items while loading -->
                 <a href="#" class="nav-link" (click)="navigateToSection($event, 'about')">About</a>
                 <a href="#" class="nav-link" (click)="navigateToSection($event, 'projects')">Projects</a>
-                <a href="#" class="nav-link" (click)="navigateToSection($event, 'blog')">Blog</a>
                 <a href="#" class="nav-link" (click)="navigateToSection($event, 'contact')">Contact</a>
-              }
-              
-              <!-- Resume CTA -->
-              @if (personalInfo()?.resumeUrl) {
-                <a [href]="personalInfo()!.resumeUrl" 
-                   class="btn btn-primary nav-cta"
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   (click)="trackResumeClick()">
-                  Resume
-                </a>
               }
             </div>
 
@@ -86,18 +74,7 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
               <!-- Default navigation items while loading -->
               <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'about'); closeMobileMenu()">About</a>
               <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'projects'); closeMobileMenu()">Projects</a>
-              <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'blog'); closeMobileMenu()">Blog</a>
               <a href="#" class="mobile-nav-link" (click)="navigateToSection($event, 'contact'); closeMobileMenu()">Contact</a>
-            }
-            
-            @if (personalInfo()?.resumeUrl) {
-              <a [href]="personalInfo()!.resumeUrl" 
-                 class="btn btn-primary mobile-cta"
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 (click)="trackResumeClick(); closeMobileMenu()">
-                Download Resume
-              </a>
             }
           </div>
         </div>
@@ -227,12 +204,6 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
       width: 100%;
     }
 
-    .nav-cta {
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 6px;
-    }
-
     .mobile-menu-toggle {
       display: none;
       background: none;
@@ -324,12 +295,6 @@ import { NavigationItem, PersonalInfo } from '../models/portfolio.interface';
 
     .mobile-nav-link:last-of-type {
       border-bottom: none;
-    }
-
-    .mobile-cta {
-      margin-top: 1rem;
-      text-align: center;
-      padding: 14px 24px;
     }
 
     .mobile-backdrop {
@@ -475,7 +440,7 @@ export class NavigationComponent implements OnInit {
 
     // Wait for DOM to be ready and observe sections
     setTimeout(() => {
-      const sections = ['hero', 'about', 'achievements', 'projects', 'blog', 'contact'];
+      const sections = ['hero', 'about', 'projects', 'contact'];
       sections.forEach(id => {
         const element = document.getElementById(id);
         if (element && this.intersectionObserver) {
@@ -561,10 +526,6 @@ export class NavigationComponent implements OnInit {
 
   protected closeMobileMenu(): void {
     this.isMobileMenuOpen.set(false);
-  }
-
-  protected trackResumeClick(): void {
-    console.log('Resume download clicked from navigation');
   }
 
   ngOnDestroy(): void {

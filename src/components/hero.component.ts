@@ -2,17 +2,15 @@ import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PortfolioService } from '../services/portfolio.service';
 import { ThemeService } from '../services/theme.service';
-import { AnalyticsService } from '../services/analytics.service';
 import { PersonalInfo, Metric } from '../models/portfolio.interface';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatChipsModule, MatProgressSpinnerModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule],
   template: `
     <section class="hero-section">
       <div class="container">
@@ -21,16 +19,12 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
             <!-- Hero Content (Left Side) -->
             <div class="hero-content">
               <h1 class="hero-title">{{ personalInfo()!.name }}</h1>
-              <p class="hero-subtitle">{{ personalInfo()!.title }}</p>
+              <p class="hero-subtitle">
+                Founder of
+                <a [href]="personalInfo()!.company.url" target="_blank" rel="noopener noreferrer">{{ personalInfo()!.company.name }}</a>
+                · {{ personalInfo()!.title }}
+              </p>
               <p class="hero-tagline">"{{ personalInfo()!.tagline }}"</p>
-              
-              <!-- Availability Status -->
-              <mat-chip-set class="availability-status">
-                <mat-chip [class]="getAvailabilityClass()">
-                  <span class="status-icon"></span>
-                  {{ personalInfo()!.availability.message }}
-                </mat-chip>
-              </mat-chip-set>
               
               <!-- Metrics Grid -->
               <div class="metrics-grid">
@@ -61,14 +55,6 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
                   type="button"
                 >
                   Let's Talk
-                </button>
-                <button 
-                  mat-outlined-button
-                  color="primary"
-                  (click)="downloadResume()"
-                  type="button"
-                >
-                  Download Resume
                 </button>
                 <a 
                   mat-outlined-button
@@ -163,23 +149,9 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       bottom: 0;
       left: 0;
       right: 0;
-      height: 40%;
-      background: linear-gradient(to top, var(--color-primary), transparent);
+      height: 30%;
+      background: linear-gradient(to top, rgba(43, 32, 20, 0.22), transparent);
       z-index: 1;
-      opacity: 0.7;
-    }
-
-    .profile-image::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: -2px;
-      right: -2px;
-      height: 60%;
-      background: 
-        radial-gradient(ellipse at bottom, rgba(26, 71, 42, 0.3) 0%, transparent 60%),
-        linear-gradient(135deg, transparent 30%, rgba(231, 76, 60, 0.1) 70%);
-      z-index: 2;
     }
 
     .profile-image img {
@@ -189,36 +161,7 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       display: block;
       position: relative;
       z-index: 0;
-    }
-
-    .availability-status {
-      margin-bottom: 30px;
-    }
-
-    .availability-status mat-chip {
-      padding: 8px 16px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    mat-chip.availability-available {
-      background: var(--color-success) !important;
-      color: white !important;
-      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
-    }
-
-    mat-chip .status-icon {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #2ecc71;
-      animation: pulse 2s infinite;
-      margin-right: 8px;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      filter: sepia(0.08) saturate(1.08) contrast(1.04) brightness(1.02);
     }
 
     .hero-content {
@@ -245,6 +188,13 @@ import { PersonalInfo, Metric } from '../models/portfolio.interface';
       margin-bottom: 20px;
       color: var(--color-text-secondary);
       font-weight: 500;
+    }
+
+    .hero-subtitle a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     .hero-tagline {
@@ -486,8 +436,7 @@ export class HeroComponent implements OnInit {
 
   constructor(
     protected portfolioService: PortfolioService,
-    private themeService: ThemeService,
-    private analyticsService: AnalyticsService
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -521,13 +470,6 @@ export class HeroComponent implements OnInit {
     setTimeout(() => clearInterval(checkInterval), 10000);
   }
 
-  protected getAvailabilityClass(): string {
-    const availability = this.personalInfo()?.availability;
-    if (!availability) return '';
-    
-    return `availability-${availability.status}`;
-  }
-
   protected scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -544,16 +486,4 @@ export class HeroComponent implements OnInit {
     img.src = 'assets/images/profile-placeholder.jpg';
   }
 
-  protected downloadResume(): void {
-    const resumeUrl = this.personalInfo()?.resumeUrl;
-    if (resumeUrl) {
-      // Track resume download
-      this.analyticsService.trackResumeDownload();
-      // Open resume in new tab
-      window.open(resumeUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      console.error('Resume URL not found');
-      alert('Resume is currently unavailable. Please contact me directly.');
-    }
-  }
 }

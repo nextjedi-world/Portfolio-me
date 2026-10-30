@@ -1,8 +1,7 @@
 {
   "shared": {
     "contact": {
-      "email": "arunabhmaster@gmail.com",
-      "resume": "assets/resume/Arunabh-Priyadarshi-Resume.pdf"
+      "email": "arunabhmaster@gmail.com"
     },
     "social": {
       "github": {
@@ -20,11 +19,6 @@
         "icon": "medium", 
         "platform": "Medium"
       },
-      "calendly": {
-        "url": "https://calendly.com/nextjedi/15min",
-        "icon": "calendar",
-        "platform": "Calendly"
-      },
       "sponsor": {
         "url": "https://github.com/sponsors/nextjedi",
         "icon": "sponsor",
@@ -37,17 +31,15 @@
 
   "personal": {
     "name": "ARUNABH PRIYADARSHI",
-    "title": "Senior Software Engineer SDE-III (9 years of Experience)",
+    "title": "Senior Software Architect",
+    "company": {
+      "name": "Next Jedi",
+      "url": "https://nextjedi.com"
+    },
     "tagline": "Developer, coder, hacker, passionate to learn and build stuff that impacts and improves the way we do things for good",
     "email": "arunabhmaster@gmail.com",
     "location": "Patna, India",
-    "availability": {
-      "status": "available",
-      "message": "Available for Remote Tech Lead & Architect Roles",
-      "type": "remote-only"
-    },
-    "profileImage": "/assets/images/arunabh-profile.jpg",
-    "resumeUrl": "/assets/resume/Arunabh-Priyadarshi-Resume.pdf"
+    "profileImage": "/assets/images/arunabh-profile.jpg"
   },
   
   "metrics": [
@@ -72,13 +64,23 @@
   ],
 
   "story": {
-    "title": "From Code Competitions to Enterprise Solutions",
+    "title": "Founder, Architect, Hacker",
     "paragraphs": [
-      "My journey started with competitive programming, where I became a 3-time national finalist in India's largest coding competition, ranking among the top 300 out of 250,000+ developers.",
-      "Over 8+ years, I've evolved from writing algorithms to architecting enterprise solutions that serve Fortune 500 companies. I've led technical teams, built products from inception to acquisition, and created systems that directly drive business revenue.",
-      "Today, I specialize in microservices architecture, AI integration, and blockchain solutions, helping companies scale their technology while building high-performing remote teams."
+      "I'm the founder of Next Jedi, where AI stops being a feature and becomes the company. Next Jedi makes bold products that help people learn, play and connect, imagined by a founder, then built, launched and operated by AI agents around the clock, with cutting-edge AI pushed to its fullest potential at every step.",
+      "I'm a senior software architect with a decade of experience, including Gartner and Crossover, working with Fortune 500 companies across the globe. At Gartner I was the architect behind a flagship cybersecurity intelligence platform that hundreds of CISOs at the world's largest enterprises rely on to benchmark and defend their organisations. Long before the era of LLMs, I conceived and led an AI platform that orchestrated eleven machine-learning models in concert, technology strong enough that it was spun out into a company of its own. I've also helped shape blockchain policy and led full-time blockchain enablement across projects, including government contracts.",
+      "At heart I'm a hacker who never stopped competing. A 5x hackathon winner and three-time national finalist of Code Gladiators, one of India's largest coding contests, I'm passionate about creating things that change the way we do things, for good."
     ],
-    "highlight": "<strong>Career Highlights:</strong><ul><li>As a senior member of Gartner's Innovation Tools team, developed software products, defined best practices for efficient development, and managed and contributed to a shared code library to promote code reuse across products.</li><li>Designed, architected and lead the development of microservice based application interacting with deep learning models (AI) on multiple fronts.</li><li>Consulting Developer at KPIT centre of excellence</li><li>Secured a position in top 300 coders of India in Code Gladiators 2017,2018 and 2019, a national level competitive coding contest out of 2.5 lakhs+ competitors.</li><li>Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code in an hour, which otherwise would take over a month. (2016-2018)</li><li>Acquired certificate for Design and analysis of algorithm from Microsoft Research Bangalore.</li></ul>"
+    "highlights": [
+      "Founded Next Jedi, where AI agents build, launch and operate the products, with one app live and six more in development.",
+      "Architected Gartner's cybersecurity benchmarking platform, used by 720+ CISOs and 2,500+ users across Fortune 500 companies and a primary driver of $5m+ in contract renewals.",
+      "Conceived and led an AI document-processing platform orchestrating 11 ML models at 99% accuracy, which led to the formation of Curl HG.",
+      "Built a blockchain practice from inception to a 12-person team, covering asset tokenization and self-sovereign identity, and contributed to government blockchain proposals.",
+      "Architected a code-generation framework that automates 75% of application development, adopted across 15+ teams.",
+      "5x hackathon winner, including 1st place at the IBM Bluemix National Hackathon (2015), and Alexa Hackathon finalist (top 25 nationally).",
+      "3x Code Gladiators national finalist (top 300 of 250,000+ developers) and CodeChef SnackDown global rank 445.",
+      "Spoke at Genesis DevCon and the International Blockchain Congress, and guest lectured on blockchain at BVBCET Hubli and GAT Bangalore.",
+      "Certified in Design & Analysis of Algorithms by Microsoft Research."
+    ]
   },
 
   "projectCategories": {
@@ -474,27 +476,18 @@
 
   "contact": {
     "title": "Let's Build Something Great Together",
-    "subtitle": "Open to remote Tech Lead & Senior Architect opportunities",
+    "subtitle": "Ideas, collaborations or a good technical conversation, I'd love to hear from you",
     "email": "arunabhmaster@gmail.com",
+    "formEndpoint": "",
     "cta": [
       {
         "text": "Email Me",
         "url": "mailto:arunabhmaster@gmail.com",
-        "type": "primary"
+        "type": "secondary"
       },
       {
         "text": "LinkedIn",
         "url": "https://linkedin.com/in/arunabhpriyadarshi",
-        "type": "secondary"
-      },
-      {
-        "text": "Schedule Call",
-        "url": "https://calendly.com/nextjedi/15min",
-        "type": "secondary"
-      },
-      {
-        "text": "Download Resume",
-        "url": "/assets/resume/Arunabh-Priyadarshi-Resume.pdf",
         "type": "secondary"
       }
     ]
@@ -507,19 +500,9 @@
       "section": "about"
     },
     {
-      "label": "Achievements",
-      "href": "#achievements",
-      "section": "achievements"
-    },
-    {
       "label": "Projects", 
       "href": "#projects",
       "section": "projects"
-    },
-    {
-      "label": "Blog",
-      "href": "#blog", 
-      "section": "blog"
     },
     {
       "label": "Contact",
@@ -570,9 +553,9 @@
   },
 
   "seo": {
-    "title": "Arunabh Priyadarshi - Senior Software Engineer & Technical Leader",
-    "description": "Senior Software Engineer specializing in enterprise solutions, AI integration, and blockchain. Built systems serving 2,500+ users with $5m+ revenue impact.",
-    "keywords": "senior software engineer, technical leader, enterprise architecture, AI integration, blockchain, remote work, full stack developer",
+    "title": "Arunabh Priyadarshi - Founder of Next Jedi & Senior Software Architect",
+    "description": "Founder of Next Jedi and senior software architect with a decade of experience across enterprise systems, AI and blockchain. Built systems serving 2,500+ users with $5m+ revenue impact.",
+    "keywords": "next jedi, founder, senior software architect, enterprise architecture, AI integration, blockchain, full stack developer",
     "ogImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop",
     "author": "Arunabh Priyadarshi",
     "canonicalUrl": "https://arunabh.me"

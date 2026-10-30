@@ -29,10 +29,8 @@ import { SEOService } from '../services/seo.service';
             <h3>2.1 Information You Provide</h3>
             <p>We may collect information that you voluntarily provide when you:</p>
             <ul>
-              <li>Contact us through our contact form</li>
+              <li>Contact us through our contact form (your name, email address and message are stored in a private Google Sheet)</li>
               <li>Subscribe to our newsletter (if applicable)</li>
-              <li>Download our resume or other materials</li>
-              <li>Schedule a meeting through calendar links</li>
             </ul>
 
             <h3>2.2 Information Automatically Collected</h3>
@@ -76,7 +74,7 @@ import { SEOService } from '../services/seo.service';
               We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
             </p>
             <ul>
-              <li><strong>Service Providers:</strong> With trusted third-party services that help us operate our website (e.g., hosting providers, analytics services)</li>
+              <li><strong>Service Providers:</strong> With trusted third-party services that help us operate our website (e.g., hosting providers, analytics services, Google for contact form messages)</li>
               <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
               <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets</li>
               <li><strong>With Your Consent:</strong> When you explicitly agree to such sharing</li>

@@ -6,9 +6,7 @@ import { AnalyticsService } from '../services/analytics.service';
 // Import all components
 import { HeroComponent } from './hero.component';
 import { StoryComponent } from './story.component';
-import { AchievementsComponent } from './achievements.component';
 import { ProjectsComponent } from './projects.component';
-import { BlogComponent } from './blog.component';
 import { ContactComponent } from './contact.component';
 
 @Component({
@@ -18,9 +16,7 @@ import { ContactComponent } from './contact.component';
     CommonModule,
     HeroComponent,
     StoryComponent,
-    AchievementsComponent,
     ProjectsComponent,
-    BlogComponent,
     ContactComponent
   ],
   template: `
@@ -32,14 +28,8 @@ import { ContactComponent } from './contact.component';
       <!-- Story/About Section -->
       <app-story></app-story>
       
-      <!-- Achievements Section -->
-      <app-achievements></app-achievements>
-      
       <!-- Projects Section -->
       <app-projects></app-projects>
-      
-      <!-- Blog Section -->
-      <app-blog></app-blog>
       
       <!-- Contact Section -->
       <app-contact></app-contact>
@@ -62,9 +52,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // Set SEO for homepage
     this.seoService.updateSEO({
-      title: 'Arunabh Priyadarshi - Senior Software Engineer & Technical Leader',
-      description: 'Senior Software Engineer specializing in enterprise solutions, AI integration, and blockchain. Built systems serving 2,500+ users with $5m+ revenue impact.',
-      keywords: 'senior software engineer, technical leader, enterprise architecture, AI integration, blockchain, remote work, full stack developer, competitive programming',
+      title: 'Arunabh Priyadarshi - Founder of Next Jedi & Senior Software Architect',
+      description: 'Founder of Next Jedi and senior software architect with a decade of experience across enterprise systems, AI and blockchain. Built systems serving 2,500+ users with $5m+ revenue impact.',
+      keywords: 'next jedi, founder, senior software architect, enterprise architecture, AI integration, blockchain, full stack developer, competitive programming',
       canonicalUrl: 'https://arunabh.me/'
     });
     
