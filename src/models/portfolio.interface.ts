@@ -1,18 +1,16 @@
 export interface PersonalInfo {
   name: string;
   title: string;
+  company: Company;
   tagline: string;
   email: string;
   location: string;
-  availability: AvailabilityStatus;
   profileImage: string;
-  resumeUrl: string;
 }
 
-export interface AvailabilityStatus {
-  status: 'available' | 'busy' | 'unavailable';
-  message: string;
-  type: 'remote-only' | 'hybrid' | 'onsite' | 'flexible';
+export interface Company {
+  name: string;
+  url: string;
 }
 
 export interface Metric {
@@ -25,7 +23,7 @@ export interface Metric {
 export interface Story {
   title: string;
   paragraphs: string[];
-  highlight: string;
+  highlights: string[];
 }
 
 export interface Achievement {
@@ -77,6 +75,7 @@ export interface Contact {
   title: string;
   subtitle: string;
   email: string;
+  formEndpoint: string;
   social: SocialLink[];
   cta: CTAButton[];
 }
@@ -153,7 +152,6 @@ export interface Theme {
 export interface SharedData {
   contact: {
     email: string;
-    resume: string;
   };
   social: {
     [key: string]: {

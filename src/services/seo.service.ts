@@ -186,7 +186,7 @@ export class SEOService {
       ],
       hasOccupation: {
         '@type': 'Occupation',
-        name: 'Senior Software Engineer',
+        name: 'Senior Software Architect',
         occupationalCategory: 'Software Engineering',
         skills: 'Java, Spring Boot, React, Angular, Python, AWS, Docker, Kubernetes'
       }

@@ -23,9 +23,9 @@ import { PortfolioService } from '../services/portfolio.service';
               <div class="link-group">
                 <h4>Connect</h4>
                 <ul>
+                  <li><a href="https://nextjedi.com" target="_blank" rel="noopener noreferrer">Next Jedi</a></li>
                   <li><a href="https://github.com/nextjedi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                   <li><a href="https://linkedin.com/in/arunabhpriyadarshi" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                  <li><a href="https://medium.com/@ap2" target="_blank" rel="noopener noreferrer">Medium</a></li>
                   <li><a href="mailto:arunabhmaster@gmail.com">Email</a></li>
                 </ul>
               </div>
@@ -34,9 +34,7 @@ import { PortfolioService } from '../services/portfolio.service';
                 <h4>Navigate</h4>
                 <ul>
                   <li><a href="#" (click)="navigateToSection($event, 'about')">About</a></li>
-                  <li><a href="#" (click)="navigateToSection($event, 'achievements')">Achievements</a></li>
                   <li><a href="#" (click)="navigateToSection($event, 'projects')">Projects</a></li>
-                  <li><a href="#" (click)="navigateToSection($event, 'blog')">Blog</a></li>
                   <li><a href="#" (click)="navigateToSection($event, 'contact')">Contact</a></li>
                 </ul>
               </div>

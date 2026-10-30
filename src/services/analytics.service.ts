@@ -68,11 +68,6 @@ export class AnalyticsService {
     this.trackEvent('view_project', 'Projects', `${projectCategory}: ${projectTitle}`);
   }
 
-  // Track resume downloads
-  trackResumeDownload(): void {
-    this.trackEvent('download_resume', 'Resume', 'Header Navigation');
-  }
-
   // Track contact interactions
   trackContactInteraction(method: string): void {
     this.trackEvent('contact_click', 'Contact', method);
