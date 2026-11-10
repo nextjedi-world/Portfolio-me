@@ -22,8 +22,18 @@ import { Story } from '../models/portfolio.interface';
                 {{ paragraph }}
               </p>
             }
-            
-            @if (story()!.highlight) {
+
+            @if (portfolioService.data()?.personal?.company; as company) {
+              <a class="story-company-link"
+                 [href]="company.url"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Explore {{ company.name }}
+                <mat-icon>arrow_forward</mat-icon>
+              </a>
+            }
+
+            @if (story()!.highlights.length) {
               <div class="story-highlight"
                    [class.animate-fade-in-up]="isVisible"
                    [style.animation-delay]="(story()!.paragraphs.length * 0.2 + 0.3) + 's'">
@@ -36,7 +46,7 @@ import { Story } from '../models/portfolio.interface';
                 <div class="highlight-text">
                   <div class="highlight-heading">Career Highlights:</div>
                   <ul class="highlight-list">
-                    @for (item of getHighlightItems(); track $index) {
+                    @for (item of story()!.highlights; track $index) {
                       <li class="highlight-item">
                         <div class="highlight-icon">
                           <mat-icon>chevron_right</mat-icon>
@@ -124,6 +134,18 @@ import { Story } from '../models/portfolio.interface';
     .story-text strong {
       color: var(--color-primary);
       font-weight: 600;
+    }
+
+    .story-company-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+      color: var(--color-primary);
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     .story-highlight {
@@ -365,17 +387,6 @@ export class StoryComponent implements OnInit {
       }
     }, 100);
     setTimeout(() => clearInterval(checkInterval), 10000);
-  }
-
-  protected getHighlightItems(): string[] {
-    return [
-      "As a senior member of Gartner's Innovation Tools team, developed software products, defined best practices for efficient development, and managed and contributed to a shared code library to promote code reuse across products.",
-      "Designed, architected and lead the development of microservice based application interacting with deep learning models (AI) on multiple fronts.",
-      "Consulting Developer at KPIT centre of excellence",
-      "Secured a position in top 300 coders of India in Code Gladiators 2017,2018 and 2019, a national level competitive coding contest out of 2.5 lakhs+ competitors.",
-      "Contributed in development of java productivity accelerator framework, it is intended to generate standard, scalable and maintainable code in an hour, which otherwise would take over a month. (2016-2018)",
-      "Acquired certificate for Design and analysis of algorithm from Microsoft Research Bangalore."
-    ];
   }
 
   private setupIntersectionObserver(): void {

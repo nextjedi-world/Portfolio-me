@@ -1,14 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PortfolioService } from '../services/portfolio.service';
 import { AnalyticsService } from '../services/analytics.service';
+import { ContactFormComponent } from './contact-form.component';
 import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ContactFormComponent],
   template: `
     <section class="contact-section section" id="contact">
       <div class="container">
@@ -26,6 +26,18 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
                 {{ contactInfo()!.subtitle }}
               </p>
             </div>
+
+            <!-- Message Form -->
+            @if (contactInfo()!.formEndpoint) {
+              <div class="contact-form-wrapper"
+                   [class.animate-fade-in-up]="isVisible"
+                   style="animation-delay: 0.3s;">
+                <app-contact-form
+                  [endpoint]="contactInfo()!.formEndpoint"
+                  [fallbackEmail]="contactInfo()!.email">
+                </app-contact-form>
+              </div>
+            }
 
             <!-- Main CTA Buttons -->
             <div class="contact-cta-group"
@@ -51,17 +63,6 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
                           <rect x="2" y="9" width="4" height="12"/>
                           <circle cx="4" cy="4" r="2"/>
                         }
-                        @case ('calendar') {
-                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                          <line x1="16" y1="2" x2="16" y2="6"/>
-                          <line x1="8" y1="2" x2="8" y2="6"/>
-                          <line x1="3" y1="10" x2="21" y2="10"/>
-                        }
-                        @case ('download') {
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                          <polyline points="7,10 12,15 17,10"/>
-                          <line x1="12" y1="15" x2="12" y2="3"/>
-                        }
                         @default {
                           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                           <polyline points="15,3 21,3 21,9"/>
@@ -73,43 +74,6 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
                 </a>
               }
             </div>
-
-            <!-- Availability Status -->
-            <div class="availability-status"
-                 [class.animate-fade-in-up]="isVisible"
-                 style="animation-delay: 0.6s;">
-              <div class="status-indicator">
-                <div class="status-dot available"></div>
-                <span class="status-text">Currently available for new opportunities</span>
-              </div>
-              <div class="status-details">
-                <div class="detail-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                  <span>Remote-first opportunities</span>
-                </div>
-                <div class="detail-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12,6 12,12 16,14"/>
-                  </svg>
-                  <span>Response within 24 hours</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- GitHub Sponsors Card -->
-            @if (sponsorCardHtml()) {
-              <div class="sponsor-section"
-                   [class.animate-fade-in-up]="isVisible"
-                   style="animation-delay: 0.8s;">
-                <h3 class="sponsor-title">Support My Work</h3>
-                <p class="sponsor-subtitle">If you find my work valuable, consider sponsoring me on GitHub</p>
-                <div class="sponsor-card-wrapper" [innerHTML]="sponsorCardHtml()"></div>
-              </div>
-            }
 
             <!-- Social Links -->
             @if (contactInfo()!.social && contactInfo()!.social.length > 0) {
@@ -211,6 +175,7 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
       font-size: 42px;
       font-weight: 700;
       margin-bottom: 1.5rem;
+      color: white;
       opacity: 0;
       transform: translateY(30px);
     }
@@ -231,6 +196,16 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
     }
 
     .contact-subtitle.animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .contact-form-wrapper {
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .contact-form-wrapper.animate-fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
 
@@ -255,115 +230,6 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
 
     .contact-cta-group .btn:hover {
       transform: translateY(-3px);
-    }
-
-    .availability-status {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      margin-bottom: 3rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .availability-status.animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .status-indicator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 1.5rem;
-    }
-
-    .status-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      position: relative;
-    }
-
-    .status-dot.available {
-      background: var(--color-success);
-      box-shadow: 0 0 20px rgba(39, 174, 96, 0.4);
-      animation: pulse-dot 2s infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-
-    .status-text {
-      font-size: 18px;
-      font-weight: 600;
-      color: white;
-    }
-
-    .status-details {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .detail-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .detail-item svg {
-      color: var(--color-success);
-      flex-shrink: 0;
-    }
-
-    /* Sponsor Section */
-    .sponsor-section {
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .sponsor-section.animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .sponsor-title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: white;
-    }
-
-    .sponsor-subtitle {
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 2rem;
-    }
-
-    .sponsor-card-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto;
-    }
-
-    .sponsor-card-wrapper :deep(iframe) {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--border-radius);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     }
 
     .social-links {
@@ -523,11 +389,6 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
         height: 44px;
       }
 
-      .sponsor-card-wrapper :deep(iframe) {
-        transform: scale(0.8);
-        transform-origin: center;
-      }
-
       .footer-links {
         flex-direction: column;
         gap: 0.5rem;
@@ -543,25 +404,15 @@ import { Contact, CTAButton, SocialLink } from '../models/portfolio.interface';
         font-size: 16px;
       }
 
-      .availability-status {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .status-text {
-        font-size: 16px;
-      }
     }
   `]
 })
 export class ContactComponent implements OnInit {
   protected readonly contactInfo = signal<Contact | null>(null);
-  protected readonly sponsorCardHtml = signal<SafeHtml | null>(null);
   protected isVisible = false;
 
   constructor(
     protected portfolioService: PortfolioService,
-    private sanitizer: DomSanitizer,
     private analyticsService: AnalyticsService
   ) {}
 
@@ -576,10 +427,6 @@ export class ContactComponent implements OnInit {
     if (data && data.contact) {
       this.contactInfo.set(data.contact);
     }
-    if (data && data.shared?.social?.['sponsor']?.['cardEmbed']) {
-      const safeHtml = this.sanitizer.bypassSecurityTrustHtml(data.shared.social['sponsor']['cardEmbed']);
-      this.sponsorCardHtml.set(safeHtml);
-    }
   }
   
   private subscribeToDataChanges(): void {
@@ -587,10 +434,6 @@ export class ContactComponent implements OnInit {
       const data = this.portfolioService.data();
       if (data && data.contact) {
         this.contactInfo.set(data.contact);
-        if (data.shared?.social?.['sponsor']?.['cardEmbed']) {
-          const safeHtml = this.sanitizer.bypassSecurityTrustHtml(data.shared.social['sponsor']['cardEmbed']);
-          this.sponsorCardHtml.set(safeHtml);
-        }
         clearInterval(checkInterval);
       }
     }, 100);
@@ -609,8 +452,6 @@ export class ContactComponent implements OnInit {
     const lowerText = text.toLowerCase();
     if (lowerText.includes('email') || lowerText.includes('mail')) return 'email';
     if (lowerText.includes('linkedin')) return 'linkedin';
-    if (lowerText.includes('schedule') || lowerText.includes('call') || lowerText.includes('calendar')) return 'calendar';
-    if (lowerText.includes('resume') || lowerText.includes('download')) return 'download';
     return 'external';
   }
 
@@ -658,7 +499,7 @@ export class ContactComponent implements OnInit {
 
   protected showPrivacyPolicy(event: Event): void {
     event.preventDefault();
-    alert('Privacy Policy:\n\nThis is a personal portfolio website showcasing professional work and experience. No personal data is collected, stored, or transmitted. All images are from Unsplash or are professional work samples used with appropriate permissions.');
+    alert('Privacy Policy:\n\nThis is a personal portfolio website showcasing professional work and experience. If you send a message through the contact form, your name, email address and message are stored in a private Google Sheet so I can reply. All images are from Unsplash or are professional work samples used with appropriate permissions.');
   }
 
   protected showTermsOfService(event: Event): void {
