@@ -6,3 +6,11 @@ commit-msg:
         head -n 1 {1} | grep -Eq
         '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9._/-]+\))?!?: .+'
         || (echo 'Commit message must be a conventional commit, for example: feat: add section' && exit 1)
+
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      glob: "*.{ts,html,json,css,scss,md,yml,yaml}"
+      run: npx --no-install prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
