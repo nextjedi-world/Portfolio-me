@@ -61,7 +61,9 @@ function notify(name, email, message) {
 }
 
 function clean(value, maxLength) {
-  return String(value === undefined || value === null ? '' : value).trim().slice(0, maxLength);
+  return String(value === undefined || value === null ? '' : value)
+    .trim()
+    .slice(0, maxLength);
 }
 
 // Stops Sheets from running submitted text as a formula.
@@ -70,5 +72,7 @@ function neutralise(value) {
 }
 
 function respond(body) {
-  return ContentService.createTextOutput(JSON.stringify(body)).setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify(body)).setMimeType(
+    ContentService.MimeType.JSON,
+  );
 }

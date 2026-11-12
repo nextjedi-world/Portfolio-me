@@ -1,21 +1,22 @@
-
 // Portfolio Custom Angular Material Theme
 @use '@angular/material' as mat;
 
 @include mat.core();
 
 // Define theme using Material 3 syntax
-$theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$green-palette,
-    tertiary: mat.$red-palette,
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$green-palette,
+      tertiary: mat.$red-palette,
+    ),
   )
-));
+);
 
 @include mat.all-component-themes($theme);
 
-html {  
+html {
   // Custom CSS variables for our portfolio theme
   --portfolio-primary: #1a472a;
   --portfolio-primary-light: #2c5f3d;

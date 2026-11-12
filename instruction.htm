@@ -1,1412 +1,1223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angular Portfolio - Complete Design Guide</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #f8f9fa;
-        }
-        
-        .design-guide {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .section {
-            background: white;
-            margin-bottom: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-        
-        .section-header {
-            background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
-            color: white;
-            padding: 20px 30px;
-            font-size: 20px;
-            font-weight: 700;
-            border-bottom: 3px solid #e74c3c;
-        }
-        
-        .section-content {
-            padding: 30px;
-        }
-        
-        /* Design System */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .color-card {
-            text-align: center;
-            padding: 30px 20px;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .primary { background: #1a472a; }
-        .primary-light { background: #2c5f3d; }
-        .accent { background: #e74c3c; }
-        .success { background: #27ae60; }
-        .neutral { background: #95a5a6; color: #2c3e50; }
-        .light { background: #f8f9fa; color: #2c3e50; border: 2px solid #e9ecef; }
-        
-        /* Typography */
-        .typo-sample {
-            margin-bottom: 20px;
-            padding: 20px;
-            border-left: 4px solid #1a472a;
-            background: #f8f9fa;
-        }
-        
-        .h1-sample { font-size: 48px; font-weight: 700; margin-bottom: 10px; }
-        .h2-sample { font-size: 32px; font-weight: 600; margin-bottom: 8px; }
-        .h3-sample { font-size: 24px; font-weight: 600; margin-bottom: 6px; }
-        .body-sample { font-size: 16px; font-weight: 400; line-height: 1.6; }
-        .small-sample { font-size: 14px; font-weight: 400; color: #6c757d; }
-        
-        /* Wireframe Styles */
-        .wireframe {
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            background: #ffffff;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .wireframe-header {
-            background: #e9ecef;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #495057;
-            border-bottom: 1px solid #dee2e6;
-        }
-        
-        /* Desktop Wireframe */
-        .desktop-wireframe {
-            width: 100%;
-            min-height: 600px;
-        }
-        
-        /* Navigation */
-        .nav-wireframe {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .logo-area {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a472a;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
-        }
-        
-        .nav-link {
-            font-size: 16px;
-            font-weight: 500;
-            color: #2c3e50;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-cta {
-            background: #e74c3c;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-        }
-        
-        /* Hero Section */
-        .hero-wireframe {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 60px;
-            align-items: center;
-            padding: 80px 40px;
-            background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
-            color: white;
-            min-height: 600px;
-        }
-        
-        .hero-image-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .profile-placeholder {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            border: 4px solid rgba(255,255,255,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 16px;
-            text-align: center;
-            line-height: 1.4;
-        }
-        
-        .availability-badge {
-            background: #27ae60;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .hero-content {
-            padding-right: 40px;
-        }
-        
-        .hero-title {
-            font-size: 52px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.1;
-        }
-        
-        .hero-subtitle {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: rgba(255,255,255,0.9);
-            font-weight: 500;
-        }
-        
-        .hero-tagline {
-            font-size: 20px;
-            margin-bottom: 40px;
-            font-style: italic;
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .metric-card {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .metric-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #e74c3c;
-            margin-bottom: 5px;
-        }
-        
-        .metric-label {
-            font-size: 14px;
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .btn-primary {
-            background: #e74c3c;
-            color: white;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255,255,255,0.4);
-        }
-        
-        /* Story Section */
-        .story-section {
-            padding: 80px 40px;
-            background: #f8f9fa;
-            text-align: center;
-        }
-        
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .story-title {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #1a472a;
-        }
-        
-        .story-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #495057;
-            margin-bottom: 20px;
-        }
-        
-        .story-highlight {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 40px;
-            border-left: 5px solid #1a472a;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        
-        /* Projects Section */
-        .projects-section {
-            padding: 80px 40px;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1a472a;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #6c757d;
-            margin-bottom: 60px;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #e9ecef;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-        }
-        
-        .project-image {
-            height: 220px;
-            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        .project-content {
-            padding: 30px;
-        }
-        
-        .project-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #1a472a;
-        }
-        
-        .project-description {
-            font-size: 16px;
-            color: #495057;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .project-metrics {
-            background: #e8f4ea;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #2c5f3d;
-            font-weight: 600;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-        
-        .tech-tag {
-            background: #1a472a;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        /* Blog Section */
-        .blog-section {
-            padding: 80px 40px;
-            background: #f8f9fa;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .blog-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-4px);
-        }
-        
-        .blog-image {
-            height: 160px;
-            background: linear-gradient(45deg, #e9ecef, #dee2e6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-        }
-        
-        .blog-content {
-            padding: 24px;
-        }
-        
-        .blog-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #1a472a;
-        }
-        
-        .blog-excerpt {
-            font-size: 14px;
-            color: #6c757d;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #adb5bd;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
-            color: white;
-            padding: 80px 40px;
-            text-align: center;
-        }
-        
-        .contact-title {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .contact-subtitle {
-            font-size: 20px;
-            margin-bottom: 50px;
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .contact-cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-        
-        .footer-info {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 30px;
-            margin-top: 50px;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero-wireframe {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 60px 20px;
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 36px;
-            }
-            
-            .metrics-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .story-section,
-            .projects-section,
-            .blog-section,
-            .contact-section {
-                padding: 60px 20px;
-            }
-        }
-        
-        /* Code Blocks */
-        .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 14px;
-            overflow-x: auto;
-            margin: 20px 0;
-            border-left: 4px solid #e74c3c;
-        }
-        
-        .instruction-box {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-left: 5px solid #fdcb6e;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .instruction-title {
-            font-weight: 600;
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        .checklist {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .checklist li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .checklist li::before {
-            content: "✅ ";
-            margin-right: 8px;
-        }
-    </style>
-</head>
-<body>
-    <div class="design-guide">
-        <!-- Design System -->
-        <div class="section">
-            <div class="section-header">🎨 Design System & Brand Guidelines</div>
-            <div class="section-content">
-                <h3>Color Palette</h3>
-                <div class="color-grid">
-                    <div class="color-card primary">
-                        <div>Primary Dark</div>
-                        <div>#1a472a</div>
-                        <div style="font-size: 12px; margin-top: 8px;">Trust, Authority, Professional</div>
-                    </div>
-                    <div class="color-card primary-light">
-                        <div>Primary Medium</div>
-                        <div>#2c5f3d</div>
-                        <div style="font-size: 12px; margin-top: 8px;">Gradients, Hover States</div>
-                    </div>
-                    <div class="color-card accent">
-                        <div>Accent Red</div>
-                        <div>#e74c3c</div>
-                        <div style="font-size: 12px; margin-top: 8px;">CTAs, Metrics, Important</div>
-                    </div>
-                    <div class="color-card success">
-                        <div>Success Green</div>
-                        <div>#27ae60</div>
-                        <div style="font-size: 12px; margin-top: 8px;">Available Status, Success</div>
-                    </div>
-                    <div class="color-card neutral">
-                        <div>Neutral Gray</div>
-                        <div>#95a5a6</div>
-                        <div style="font-size: 12px; margin-top: 8px;">Subtle Elements</div>
-                    </div>
-                    <div class="color-card light">
-                        <div>Light Background</div>
-                        <div>#f8f9fa</div>
-                        <div style="font-size: 12px; margin-top: 8px;">Sections, Cards</div>
-                    </div>
-                </div>
-                
-                <h3>Typography Scale</h3>
-                <div class="typo-sample">
-                    <div class="h1-sample">Hero Heading (48px)</div>
-                    <small>Font: Inter Bold, Weight: 700, Line Height: 1.1</small>
-                </div>
-                
-                <div class="typo-sample">
-                    <div class="h2-sample">Section Title (32px)</div>
-                    <small>Font: Inter SemiBold, Weight: 600, Line Height: 1.2</small>
-                </div>
-                
-                <div class="typo-sample">
-                    <div class="h3-sample">Card Title (24px)</div>
-                    <small>Font: Inter SemiBold, Weight: 600, Line Height: 1.3</small>
-                </div>
-                
-                <div class="typo-sample">
-                    <div class="body-sample">Body text with good readability and proper line height for long-form content.</div>
-                    <small>Font: Inter Regular, Weight: 400, Line Height: 1.6</small>
-                </div>
-                
-                <div class="typo-sample">
-                    <div class="small-sample">Small text for metadata, captions, and secondary information</div>
-                    <small>Font: Inter Regular, Weight: 400, Line Height: 1.4</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- Desktop Wireframe -->
-        <div class="section">
-            <div class="section-header">🖥️ Desktop Layout (1440px+)</div>
-            <div class="section-content">
-                <div class="wireframe">
-                    <div class="wireframe-header">Navigation Bar - Sticky Header</div>
-                    <div class="nav-wireframe">
-                        <div class="logo-area">AP</div>
-                        <ul class="nav-links">
-                            <li><a href="#about" class="nav-link">About</a></li>
-                            <li><a href="#projects" class="nav-link">Projects</a></li>
-                            <li><a href="#blog" class="nav-link">Blog</a></li>
-                            <li><a href="#contact" class="nav-link">Contact</a></li>
-                            <li><a href="/resume" class="nav-cta">Resume</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="wireframe">
-                    <div class="wireframe-header">Hero Section - Above The Fold</div>
-                    <div class="hero-wireframe">
-                        <div class="hero-image-area">
-                            <div class="profile-placeholder">
-                                Your Professional Photo<br>
-                                300x300px<br>
-                                High-quality, recent<br>
-                                Professional but approachable
-                            </div>
-                            <div class="availability-badge">Available for Remote Roles</div>
-                        </div>
-                        
-                        <div class="hero-content">
-                            <h1 class="hero-title">ARUNABH PRIYADARSHI</h1>
-                            <div class="hero-subtitle">Senior Software Engineer & Technical Leader</div>
-                            <div class="hero-tagline">"Building enterprise products that drive revenue and scale"</div>
-                            
-                            <div class="metrics-grid">
-                                <div class="metric-card">
-                                    <div class="metric-value">$M+</div>
-                                    <div class="metric-label">Revenue Impact</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">2,500+</div>
-                                    <div class="metric-label">Enterprise Users</div>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-value">3x</div>
-                                    <div class="metric-label">Code Champion</div>
-                                </div>
-                            </div>
-                            
-                            <div class="cta-group">
-                                <a href="#projects" class="btn btn-primary">View My Work</a>
-                                <a href="#contact" class="btn btn-secondary">Let's Talk</a>
-                                <a href="/resume.pdf" class="btn btn-secondary">Download Resume</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="wireframe">
-                    <div class="wireframe-header">Story Section - Personal Connection</div>
-                    <div class="story-section">
-                        <div class="story-content">
-                            <h2 class="story-title">From Code Competitions to Enterprise Solutions</h2>
-                            
-                            <p class="story-text">
-                                My journey started with competitive programming, where I became a 3-time national finalist in India's largest coding competition, ranking among the top 300 out of 250,000+ developers.
-                            </p>
-                            
-                            <p class="story-text">
-                                Over 8+ years, I've evolved from writing algorithms to architecting enterprise solutions that serve Fortune 500 companies. I've led technical teams, built products from inception to acquisition, and created systems that directly drive business revenue.
-                            </p>
-                            
-                            <p class="story-text">
-                                Today, I specialize in <strong>microservices architecture</strong>, <strong>AI integration</strong>, and <strong>blockchain solutions</strong>, helping companies scale their technology while building high-performing remote teams.
-                            </p>
-                            
-                            <div class="story-highlight">
-                                <strong>What drives me:</strong> Solving complex technical challenges that have measurable business impact, while mentoring teams and sharing knowledge through speaking and writing.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="wireframe">
-                    <div class="wireframe-header">Featured Projects - Case Studies</div>
-                    <div class="projects-section">
-                        <h2 class="section-title">Featured Projects</h2>
-                        <p class="section-subtitle">Enterprise solutions that drive business results</p>
-                        
-                        <div class="projects-grid">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    Screenshots/Demo<br>
-                                    Cybersecurity Platform UI
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Enterprise Cybersecurity Platform</h3>
-                                    <p class="project-description">
-                                        Single-handedly built backend serving 720+ CISOs across Fortune 500 companies, integrating AI for insights and automated reporting.
-                                    </p>
-                                    <div class="project-metrics">
-                                        💰 $M+ Revenue Driver | 👥 2,500+ Users | 📊 15+ Enterprise Renewals
-                                    </div>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Spring Boot</span>
-                                        <span class="tech-tag">React</span>
-                                        <span class="tech-tag">PostgreSQL</span>
-                                        <span class="tech-tag">ChatGPT</span>
-                                        <span class="tech-tag">AWS</span>
-                                    </div>
-                                    <a href="/case-study/cybersecurity" class="btn btn-primary">View Case Study →</a>
-                                </div>
-                            </div>
-                            
-                            <div class="project-card">
-                                <div class="project-image">
-                                    Architecture Diagram<br>
-                                    AI Processing Flow
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">AI Document Processing System</h3>
-                                    <p class="project-description">
-                                        Orchestrated 11 ML models to process 1,000+ documents/night with 99% accuracy. System success led to formation of new company.
-                                    </p>
-                                    <div class="project-metrics">
-                                        🤖 99% Accuracy | 📄 1000+ Docs/Night | 🏢 Company Formation
-                                    </div>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Kafka</span>
-                                        <span class="tech-tag">ML Models</span>
-                                        <span class="tech-tag">Redis</span>
-                                        <span class="tech-tag">Docker</span>
-                                    </div>
-                                    <a href="/case-study/ai-processing" class="btn btn-primary">View Case Study →</a>
-                                </div>
-                            </div>
-                            
-                            <div class="project-card">
-                                <div class="project-image">
-                                    Code Framework<br>
-                                    Template Structure
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Code Generation Framework</h3>
-                                    <p class="project-description">
-                                        Created framework automating 75% of application development, enabling migration of 150+ legacy systems across 15+ teams.
-                                    </p>
-                                    <div class="project-metrics">
-                                        ⚡ 75% Automation | 🏗️ 150+ Apps | 👥 15+ Teams
-                                    </div>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Java</span>
-                                        <span class="tech-tag">Templates</span>
-                                        <span class="tech-tag">Maven</span>
-                                        <span class="tech-tag">Spring Boot</span>
-                                        <span class="tech-tag">Angular</span>
-                                    </div>
-                                    <a href="/case-study/code-framework" class="btn btn-primary">View Case Study →</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="text-align: center;">
-                            <a href="/projects" class="btn btn-secondary" style="color: #1a472a; border-color: #1a472a;">View All Projects →</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="wireframe">
-                    <div class="wireframe-header">Blog Section - Medium Integration</div>
-                    <div class="blog-section">
-                        <h2 class="section-title">Technical Insights & Thoughts</h2>
-                        <p class="section-subtitle">Sharing knowledge about architecture, AI, and engineering leadership</p>
-                        
-                        <div class="blog-grid">
-                            <div class="blog-card">
-                                <div class="blog-image">Medium Article 1<br>Thumbnail</div>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">How I Built a Code Generation Framework</h3>
-                                    <p class="blog-excerpt">Deep dive into the architecture decisions and design patterns that enabled 75% automation...</p>
-                                    <div class="blog-meta">
-                                        <span>5 min read</span>
-                                        <span>Jan 15, 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="blog-card">
-                                <div class="blog-image">Medium Article 2<br>Thumbnail</div>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">Scaling AI Systems for Enterprise</h3>
-                                    <p class="blog-excerpt">Lessons from processing millions of documents with 99% accuracy at enterprise scale...</p>
-                                    <div class="blog-meta">
-                                        <span>8 min read</span>
-                                        <span>Jan 10, 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="blog-card">
-                                <div class="blog-image">Medium Article 3<br>Thumbnail</div>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">Building Remote Engineering Teams</h3>
-                                    <p class="blog-excerpt">Best practices from leading distributed teams and scaling blockchain practices...</p>
-                                    <div class="blog-meta">
-                                        <span>6 min read</span>
-                                        <span>Jan 5, 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="text-align: center;">
-                            <a href="https://medium.com/@arunabhpriyadarshi" class="btn btn-secondary" style="color: #1a472a; border-color: #1a472a;">Read All Articles →</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="wireframe">
-                    <div class="wireframe-header">Contact Section - Conversion Focus</div>
-                    <div class="contact-section">
-                        <h2 class="contact-title">Let's Build Something Great Together</h2>
-                        <p class="contact-subtitle">Open to remote Tech Lead & Senior Architect opportunities</p>
-                        
-                        <div class="contact-cta-group">
-                            <a href="mailto:arunabhmaster@gmail.com" class="btn btn-primary">Email Me</a>
-                            <a href="https://linkedin.com/in/arunabhpriyadarshi" class="btn btn-secondary">LinkedIn</a>
-                            <a href="https://calendly.com/arunabh" class="btn btn-secondary">Schedule Call</a>
-                            <a href="/resume.pdf" class="btn btn-secondary">Download Resume</a>
-                        </div>
-                        
-                        <div class="footer-info">
-                            <p>&copy; 2025 Arunabh Priyadarshi. Built with Angular & passion for clean code.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Angular Implementation Guide -->
-        <div class="section">
-            <div class="section-header">⚙️ Angular Implementation Guide</div>
-            <div class="section-content">
-                <div class="instruction-box">
-                    <div class="instruction-title">🚀 Step-by-Step Implementation</div>
-                    
-                    <h3>Phase 1: Project Setup (Day 1)</h3>
-                    <div class="code-block">
-# Create new Angular project
-ng new arunabh-portfolio --routing --style=scss --skip-git=false
-
-# Navigate to project
-cd arunabh-portfolio
-
-# Add Angular Material
-ng add @angular/material
-
-# Add Angular Flex Layout
-ng add @angular/flex-layout
-
-# Add Angular Animations
-npm install @angular/animations
-
-# Install additional dependencies
-npm install aos                    # Animate On Scroll
-npm install @fortawesome/fontawesome-free  # Icons
-npm install intersection-observer  # For lazy loading
-                    </div>
-                    
-                    <h3>Phase 2: Component Structure (Day 2-3)</h3>
-                    <div class="code-block">
-# Generate components
-ng generate component components/header
-ng generate component components/hero
-ng generate component components/story
-ng generate component components/projects
-ng generate component components/project-card
-ng generate component components/blog
-ng generate component components/blog-card
-ng generate component components/contact
-ng generate component components/footer
-
-# Generate services
-ng generate service services/medium
-ng generate service services/analytics
-
-# Generate interfaces
-ng generate interface models/project
-ng generate interface models/blog-post
-                    </div>
-                    
-                    <h3>Phase 3: Core Components (Day 4-7)</h3>
-                    
-                    <h4>Hero Component (src/app/components/hero/hero.component.ts):</h4>
-                    <div class="code-block">
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-
-@Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
-  animations: [
-    trigger('slideInUp', [
-      state('in', style({transform: 'translateY(0)'})),
-      transition('void => *', [
-        style({transform: 'translateY(100px)', opacity: 0}),
-        animate(1000)
-      ])
-    ])
-  ]
-})
-export class HeroComponent implements OnInit {
-  
-  metrics = [
-    { value: '$M+', label: 'Revenue Impact' },
-    { value: '2,500+', label: 'Enterprise Users' },
-    { value: '3x', label: 'Code Champion' }
-  ];
-  
-  constructor() { }
-  
-  ngOnInit(): void {
-    // Initialize animations or load data
-  }
-  
-  scrollToProjects(): void {
-    const element = document.getElementById('projects');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  }
-  
-  openContact(): void {
-    const element = document.getElementById('contact');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-                    </div>
-                    
-                    <h4>Hero Component Template (hero.component.html):</h4>
-                    <div class="code-block">
-&lt;section class="hero-section" [@slideInUp]&gt;
-  &lt;div class="container"&gt;
-    &lt;div class="hero-grid" 
-         fxLayout="row" 
-         fxLayout.lt-md="column" 
-         fxLayoutGap="60px" 
-         fxLayoutAlign="center center"&gt;
-      
-      &lt;!-- Profile Image Section --&gt;
-      &lt;div class="hero-image-area" fxFlex="400px" fxFlex.lt-md="100"&gt;
-        &lt;div class="profile-image"&gt;
-          &lt;img src="assets/images/arunabh-profile.jpg" 
-               alt="Arunabh Priyadarshi - Senior Software Engineer"
-               loading="eager"&gt;
-        &lt;/div&gt;
-        &lt;div class="availability-badge"&gt;
-          &lt;fa-icon [icon]="['fas', 'circle']" class="status-icon"&gt;&lt;/fa-icon&gt;
-          Available for Remote Roles
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
-      &lt;!-- Hero Content --&gt;
-      &lt;div class="hero-content" fxFlex="1" fxFlex.lt-md="100"&gt;
-        &lt;h1 class="hero-title"&gt;ARUNABH PRIYADARSHI&lt;/h1&gt;
-        &lt;p class="hero-subtitle"&gt;Senior Software Engineer &amp; Technical Leader&lt;/p&gt;
-        &lt;p class="hero-tagline"&gt;"Building enterprise products that drive revenue and scale"&lt;/p&gt;
-        
-        &lt;!-- Metrics Grid --&gt;
-        &lt;div class="metrics-grid" 
-             fxLayout="row" 
-             fxLayout.lt-sm="column" 
-             fxLayoutGap="20px"&gt;
-          &lt;div *ngFor="let metric of metrics" 
-               class="metric-card" 
-               fxFlex="1"&gt;
-            &lt;div class="metric-value"&gt;{{ metric.value }}&lt;/div&gt;
-            &lt;div class="metric-label"&gt;{{ metric.label }}&lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        
-        &lt;!-- CTA Buttons --&gt;
-        &lt;div class="cta-group" 
-             fxLayout="row" 
-             fxLayout.lt-sm="column" 
-             fxLayoutGap="16px"&gt;
-          &lt;button mat-raised-button 
-                  color="accent" 
-                  class="btn-primary"
-                  (click)="scrollToProjects()"&gt;
-            View My Work
-          &lt;/button&gt;
-          &lt;button mat-stroked-button 
-                  class="btn-secondary"
-                  (click)="openContact()"&gt;
-            Let's Talk
-          &lt;/button&gt;
-          &lt;a mat-stroked-button 
-             href="assets/resume/Arunabh-Priyadarshi-Resume.pdf" 
-             target="_blank"
-             class="btn-secondary"&gt;
-            Download Resume
-          &lt;/a&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/section&gt;
-                    </div>
-                    
-                    <h4>Hero Component Styles (hero.component.scss):</h4>
-                    <div class="code-block">
-.hero-section {
-  background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
-  color: white;
-  padding: 80px 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .hero-grid {
-    align-items: center;
-  }
-  
-  .hero-image-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    
-    .profile-image {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      margin-bottom: 20px;
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    }
-    
-    .availability-badge {
-      background: #27ae60;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      
-      .status-icon {
-        color: #2ecc71;
-        font-size: 8px;
-        animation: pulse 2s infinite;
+
+      body {
+        font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+        background: #f8f9fa;
       }
-    }
-  }
-  
-  .hero-content {
-    .hero-title {
-      font-size: 52px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      line-height: 1.1;
-      
-      @media (max-width: 768px) {
-        font-size: 36px;
-        text-align: center;
+
+      .design-guide {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
       }
-    }
-    
-    .hero-subtitle {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-      
-      @media (max-width: 768px) {
+
+      .section {
+        background: white;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .section-header {
+        background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
+        color: white;
+        padding: 20px 30px;
         font-size: 20px;
+        font-weight: 700;
+        border-bottom: 3px solid #e74c3c;
+      }
+
+      .section-content {
+        padding: 30px;
+      }
+
+      /* Design System */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .color-card {
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .primary {
+        background: #1a472a;
+      }
+      .primary-light {
+        background: #2c5f3d;
+      }
+      .accent {
+        background: #e74c3c;
+      }
+      .success {
+        background: #27ae60;
+      }
+      .neutral {
+        background: #95a5a6;
+        color: #2c3e50;
+      }
+      .light {
+        background: #f8f9fa;
+        color: #2c3e50;
+        border: 2px solid #e9ecef;
+      }
+
+      /* Typography */
+      .typo-sample {
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 4px solid #1a472a;
+        background: #f8f9fa;
+      }
+
+      .h1-sample {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .h2-sample {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .h3-sample {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .body-sample {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+      .small-sample {
+        font-size: 14px;
+        font-weight: 400;
+        color: #6c757d;
+      }
+
+      /* Wireframe Styles */
+      .wireframe {
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        background: #ffffff;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+
+      .wireframe-header {
+        background: #e9ecef;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #495057;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      /* Desktop Wireframe */
+      .desktop-wireframe {
+        width: 100%;
+        min-height: 600px;
+      }
+
+      /* Navigation */
+      .nav-wireframe {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .logo-area {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a472a;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-link {
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c3e50;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-cta {
+        background: #e74c3c;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      /* Hero Section */
+      .hero-wireframe {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        gap: 60px;
+        align-items: center;
+        padding: 80px 40px;
+        background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
+        color: white;
+        min-height: 600px;
+      }
+
+      .hero-image-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
       }
-    }
-    
-    .hero-tagline {
-      font-size: 20px;
-      margin-bottom: 40px;
-      font-style: italic;
-      color: rgba(255, 255, 255, 0.8);
-      
-      @media (max-width: 768px) {
-        font-size: 18px;
+
+      .profile-placeholder {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 16px;
         text-align: center;
+        line-height: 1.4;
       }
-    }
-    
-    .metrics-grid {
-      margin-bottom: 40px;
-      
+
+      .availability-badge {
+        background: #27ae60;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .hero-content {
+        padding-right: 40px;
+      }
+
+      .hero-title {
+        font-size: 52px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+      }
+
+      .hero-tagline {
+        font-size: 20px;
+        margin-bottom: 40px;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
       .metric-card {
         background: rgba(255, 255, 255, 0.1);
         padding: 20px;
         border-radius: 12px;
         text-align: center;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: transform 0.3s ease;
-        
-        &:hover {
-          transform: translateY(-5px);
-        }
-        
-        .metric-value {
-          font-size: 28px;
-          font-weight: 700;
-          color: #e74c3c;
-          margin-bottom: 5px;
-        }
-        
-        .metric-label {
-          font-size: 14px;
-          color: rgba(255, 255, 255, 0.8);
-        }
       }
-    }
-    
-    .cta-group {
-      .btn-primary,
-      .btn-secondary {
+
+      .metric-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: #e74c3c;
+        margin-bottom: 5px;
+      }
+
+      .metric-label {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
         padding: 14px 28px;
+        border-radius: 8px;
         font-size: 16px;
         font-weight: 600;
-        border-radius: 8px;
-        text-transform: none;
-        transition: all 0.3s ease;
+        text-decoration: none;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: none;
       }
-      
+
       .btn-primary {
         background: #e74c3c;
-        
-        &:hover {
-          background: #c0392b;
-          transform: translateY(-2px);
-        }
-      }
-      
-      .btn-secondary {
-        border: 2px solid rgba(255, 255, 255, 0.4);
         color: white;
-        
-        &:hover {
-          background: rgba(255, 255, 255, 0.1);
-          transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+      }
+
+      /* Story Section */
+      .story-section {
+        padding: 80px 40px;
+        background: #f8f9fa;
+        text-align: center;
+      }
+
+      .story-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .story-title {
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #1a472a;
+      }
+
+      .story-text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #495057;
+        margin-bottom: 20px;
+      }
+
+      .story-highlight {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        margin-top: 40px;
+        border-left: 5px solid #1a472a;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Projects Section */
+      .projects-section {
+        padding: 80px 40px;
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #1a472a;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #6c757d;
+        margin-bottom: 60px;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        border: 1px solid #e9ecef;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-image {
+        height: 220px;
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .project-content {
+        padding: 30px;
+      }
+
+      .project-title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1a472a;
+      }
+
+      .project-description {
+        font-size: 16px;
+        color: #495057;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .project-metrics {
+        background: #e8f4ea;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #2c5f3d;
+        font-weight: 600;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 25px;
+      }
+
+      .tech-tag {
+        background: #1a472a;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      /* Blog Section */
+      .blog-section {
+        padding: 80px 40px;
+        background: #f8f9fa;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .blog-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .blog-image {
+        height: 160px;
+        background: linear-gradient(45deg, #e9ecef, #dee2e6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+      }
+
+      .blog-content {
+        padding: 24px;
+      }
+
+      .blog-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #1a472a;
+      }
+
+      .blog-excerpt {
+        font-size: 14px;
+        color: #6c757d;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+
+      .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #adb5bd;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%);
+        color: white;
+        padding: 80px 40px;
+        text-align: center;
+      }
+
+      .contact-title {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .contact-subtitle {
+        font-size: 20px;
+        margin-bottom: 50px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .contact-cta-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+      }
+
+      .footer-info {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 30px;
+        margin-top: 50px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .hero-wireframe {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding: 60px 20px;
+          gap: 40px;
+        }
+
+        .hero-title {
+          font-size: 36px;
+        }
+
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .story-section,
+        .projects-section,
+        .blog-section,
+        .contact-section {
+          padding: 60px 20px;
         }
       }
-    }
-  }
-}
 
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-                    </div>
-                    
-                    <h3>Phase 4: Medium Integration Service (Day 8)</h3>
-                    <div class="code-block">
-// medium.service.ts
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+      /* Code Blocks */
+      .code-block {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 20px;
+        border-radius: 8px;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-size: 14px;
+        overflow-x: auto;
+        margin: 20px 0;
+        border-left: 4px solid #e74c3c;
+      }
 
-export interface BlogPost {
-  title: string;
-  link: string;
-  description: string;
-  pubDate: string;
-  thumbnail?: string;
-  categories?: string[];
-  author: string;
-}
+      .instruction-box {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-left: 5px solid #fdcb6e;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
 
-@Injectable({
-  providedIn: 'root'
-})
-export class MediumService {
-  
-  private readonly RSS_TO_JSON_API = 'https://api.rss2json.com/v1/api.json';
-  private readonly MEDIUM_RSS_URL = 'https://medium.com/@arunabhpriyadarshi/feed';
-  
-  constructor(private http: HttpClient) { }
-  
-  getBlogPosts(): Observable&lt;BlogPost[]&gt; {
-    const url = `${this.RSS_TO_JSON_API}?rss_url=${encodeURIComponent(this.MEDIUM_RSS_URL)}`;
-    
-    return this.http.get&lt;any&gt;(url).pipe(
-      map(response => {
-        if (response.status === 'ok') {
-          return response.items.slice(0, 6).map((item: any) => ({
-            title: item.title,
-            link: item.link,
-            description: this.cleanDescription(item.description || item.content),
-            pubDate: new Date(item.pubDate).toLocaleDateString(),
-            thumbnail: item.thumbnail || this.extractImageFromContent(item.content),
-            categories: item.categories || [],
-            author: item.author || 'Arunabh Priyadarshi'
-          }));
-        }
-        return [];
-      })
-    );
-  }
-  
-  private cleanDescription(description: string): string {
-    // Remove HTML tags and limit length
-    const div = document.createElement('div');
-    div.innerHTML = description;
-    const text = div.textContent || div.innerText || '';
-    return text.length > 150 ? text.substring(0, 150) + '...' : text;
-  }
-  
-  private extractImageFromContent(content: string): string {
-    // Extract first image from Medium content
-    const imgRegex = /&lt;img[^&gt;]+src="([^"&gt;]+)"/;
-    const match = content.match(imgRegex);
-    return match ? match[1] : 'assets/images/blog-placeholder.jpg';
-  }
-}
-                    </div>
-                    
-                    <h3>Phase 5: Deployment (Day 9-10)</h3>
-                    <div class="code-block">
-# Build for production
-ng build --prod
+      .instruction-title {
+        font-weight: 600;
+        color: #856404;
+        margin-bottom: 10px;
+      }
 
-# Deploy to Netlify (recommended)
-npm install -g netlify-cli
-netlify deploy --prod --dir=dist/arunabh-portfolio
+      .checklist {
+        list-style: none;
+        padding: 0;
+      }
 
-# Or deploy to Vercel
-npm install -g vercel
-vercel --prod
+      .checklist li {
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
 
-# Or Firebase
-npm install -g firebase-tools
-firebase init hosting
-firebase deploy
-                    </div>
-                </div>
-                
-                <div class="instruction-box">
-                    <div class="instruction-title">📱 Responsive Design Checklist</div>
-                    <ul class="checklist">
-                        <li>Hero section stacks vertically on mobile</li>
-                        <li>Navigation collapses to hamburger menu</li>
-                        <li>Project cards display in single column</li>
-                        <li>Metrics grid becomes vertical on small screens</li>
-                        <li>Font sizes scale appropriately</li>
-                        <li>Images are optimized and responsive</li>
-                        <li>Touch targets are minimum 44px</li>
-                        <li>Text remains readable on all devices</li>
-                    </ul>
-                </div>
-                
-                <div class="instruction-box">
-                    <div class="instruction-title">🎯 Key Success Metrics</div>
-                    <ul class="checklist">
-                        <li>Page loads in under 3 seconds</li>
-                        <li>90+ Lighthouse performance score</li>
-                        <li>Professional credibility established immediately</li>
-                        <li>Clear path from hero to contact</li>
-                        <li>All links and CTAs work perfectly</li>
-                        <li>Mobile experience is smooth</li>
-                        <li>Medium blog integration updates automatically</li>
-                        <li>Resume downloads successfully</li>
-                        <li>Contact forms submit without errors</li>
-                        <li>SEO meta tags are properly configured</li>
-                    </ul>
-                </div>
+      .checklist li::before {
+        content: '✅ ';
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="design-guide">
+      <!-- Design System -->
+      <div class="section">
+        <div class="section-header">🎨 Design System & Brand Guidelines</div>
+        <div class="section-content">
+          <h3>Color Palette</h3>
+          <div class="color-grid">
+            <div class="color-card primary">
+              <div>Primary Dark</div>
+              <div>#1a472a</div>
+              <div style="font-size: 12px; margin-top: 8px">Trust, Authority, Professional</div>
             </div>
-        </div>
-
-        <!-- Assets & Content Preparation -->
-        <div class="section">
-            <div class="section-header">📸 Assets & Content Preparation</div>
-            <div class="section-content">
-                <div class="instruction-box">
-                    <div class="instruction-title">🖼️ Required Assets</div>
-                    
-                    <h3>Professional Photo Requirements:</h3>
-                    <ul>
-                        <li><strong>Size:</strong> Minimum 300x300px, ideal 600x600px</li>
-                        <li><strong>Format:</strong> JPG or WebP for best performance</li>
-                        <li><strong>Quality:</strong> High-resolution, professionally lit</li>
-                        <li><strong>Style:</strong> Business casual, friendly but serious</li>
-                        <li><strong>Background:</strong> Clean, uncluttered</li>
-                        <li><strong>File size:</strong> Under 100KB optimized</li>
-                    </ul>
-                    
-                    <h3>Project Screenshots/Mockups:</h3>
-                    <ul>
-                        <li><strong>Cybersecurity Platform:</strong> Dashboard screenshots, charts, UI mockups</li>
-                        <li><strong>AI Document Processing:</strong> Architecture diagrams, flow charts</li>
-                        <li><strong>Code Framework:</strong> Code examples, template structure</li>
-                        <li><strong>Size:</strong> 800x500px or 16:10 aspect ratio</li>
-                        <li><strong>Format:</strong> WebP for performance, PNG for transparency</li>
-                    </ul>
-                    
-                    <h3>Resume & Documents:</h3>
-                    <ul>
-                        <li><strong>Resume PDF:</strong> ATS-optimized version we created</li>
-                        <li><strong>File name:</strong> Arunabh-Priyadarshi-Resume.pdf</li>
-                        <li><strong>Size:</strong> Under 1MB</li>
-                    </ul>
-                </div>
-                
-                <div class="instruction-box">
-                    <div class="instruction-title">📝 Content Checklist</div>
-                    <ul class="checklist">
-                        <li>Professional headshot (300x300px minimum)</li>
-                        <li>3-4 project screenshots/mockups</li>
-                        <li>Updated resume PDF</li>
-                        <li>Medium profile URL for RSS integration</li>
-                        <li>LinkedIn profile URL</li>
-                        <li>Email address for contact</li>
-                        <li>Calendly or scheduling link</li>
-                        <li>GitHub profile URL</li>
-                        <li>Domain name decision (your-name.com)</li>
-                        <li>Google Analytics account setup</li>
-                    </ul>
-                </div>
-                
-                <div class="instruction-box">
-                    <div class="instruction-title">🚀 Go-Live Checklist</div>
-                    <ul class="checklist">
-                        <li>All images optimized and loading</li>
-                        <li>Medium RSS feed pulling articles</li>
-                        <li>Contact form submissions working</li>
-                        <li>Resume download functioning</li>
-                        <li>All external links opening correctly</li>
-                        <li>Mobile responsiveness tested</li>
-                        <li>Page speed optimized (90+ Lighthouse)</li>
-                        <li>SEO meta tags configured</li>
-                        <li>Analytics tracking implemented</li>
-                        <li>Domain and SSL certificate active</li>
-                    </ul>
-                </div>
+            <div class="color-card primary-light">
+              <div>Primary Medium</div>
+              <div>#2c5f3d</div>
+              <div style="font-size: 12px; margin-top: 8px">Gradients, Hover States</div>
             </div>
+            <div class="color-card accent">
+              <div>Accent Red</div>
+              <div>#e74c3c</div>
+              <div style="font-size: 12px; margin-top: 8px">CTAs, Metrics, Important</div>
+            </div>
+            <div class="color-card success">
+              <div>Success Green</div>
+              <div>#27ae60</div>
+              <div style="font-size: 12px; margin-top: 8px">Available Status, Success</div>
+            </div>
+            <div class="color-card neutral">
+              <div>Neutral Gray</div>
+              <div>#95a5a6</div>
+              <div style="font-size: 12px; margin-top: 8px">Subtle Elements</div>
+            </div>
+            <div class="color-card light">
+              <div>Light Background</div>
+              <div>#f8f9fa</div>
+              <div style="font-size: 12px; margin-top: 8px">Sections, Cards</div>
+            </div>
+          </div>
+
+          <h3>Typography Scale</h3>
+          <div class="typo-sample">
+            <div class="h1-sample">Hero Heading (48px)</div>
+            <small>Font: Inter Bold, Weight: 700, Line Height: 1.1</small>
+          </div>
+
+          <div class="typo-sample">
+            <div class="h2-sample">Section Title (32px)</div>
+            <small>Font: Inter SemiBold, Weight: 600, Line Height: 1.2</small>
+          </div>
+
+          <div class="typo-sample">
+            <div class="h3-sample">Card Title (24px)</div>
+            <small>Font: Inter SemiBold, Weight: 600, Line Height: 1.3</small>
+          </div>
+
+          <div class="typo-sample">
+            <div class="body-sample">
+              Body text with good readability and proper line height for long-form content.
+            </div>
+            <small>Font: Inter Regular, Weight: 400, Line Height: 1.6</small>
+          </div>
+
+          <div class="typo-sample">
+            <div class="small-sample">
+              Small text for metadata, captions, and secondary information
+            </div>
+            <small>Font: Inter Regular, Weight: 400, Line Height: 1.4</small>
+          </div>
         </div>
+      </div>
+
+      <!-- Desktop Wireframe -->
+      <div class="section">
+        <div class="section-header">🖥️ Desktop Layout (1440px+)</div>
+        <div class="section-content">
+          <div class="wireframe">
+            <div class="wireframe-header">Navigation Bar - Sticky Header</div>
+            <div class="nav-wireframe">
+              <div class="logo-area">AP</div>
+              <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="/resume" class="nav-cta">Resume</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="wireframe">
+            <div class="wireframe-header">Hero Section - Above The Fold</div>
+            <div class="hero-wireframe">
+              <div class="hero-image-area">
+                <div class="profile-placeholder">
+                  Your Professional Photo<br />
+                  300x300px<br />
+                  High-quality, recent<br />
+                  Professional but approachable
+                </div>
+                <div class="availability-badge">Available for Remote Roles</div>
+              </div>
+
+              <div class="hero-content">
+                <h1 class="hero-title">ARUNABH PRIYADARSHI</h1>
+                <div class="hero-subtitle">Senior Software Engineer & Technical Leader</div>
+                <div class="hero-tagline">
+                  "Building enterprise products that drive revenue and scale"
+                </div>
+
+                <div class="metrics-grid">
+                  <div class="metric-card">
+                    <div class="metric-value">$M+</div>
+                    <div class="metric-label">Revenue Impact</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-value">2,500+</div>
+                    <div class="metric-label">Enterprise Users</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-value">3x</div>
+                    <div class="metric-label">Code Champion</div>
+                  </div>
+                </div>
+
+                <div class="cta-group">
+                  <a href="#projects" class="btn btn-primary">View My Work</a>
+                  <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                  <a href="/resume.pdf" class="btn btn-secondary">Download Resume</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe">
+            <div class="wireframe-header">Story Section - Personal Connection</div>
+            <div class="story-section">
+              <div class="story-content">
+                <h2 class="story-title">From Code Competitions to Enterprise Solutions</h2>
+
+                <p class="story-text">
+                  My journey started with competitive programming, where I became a 3-time national
+                  finalist in India's largest coding competition, ranking among the top 300 out of
+                  250,000+ developers.
+                </p>
+
+                <p class="story-text">
+                  Over 8+ years, I've evolved from writing algorithms to architecting enterprise
+                  solutions that serve Fortune 500 companies. I've led technical teams, built
+                  products from inception to acquisition, and created systems that directly drive
+                  business revenue.
+                </p>
+
+                <p class="story-text">
+                  Today, I specialize in <strong>microservices architecture</strong>,
+                  <strong>AI integration</strong>, and <strong>blockchain solutions</strong>,
+                  helping companies scale their technology while building high-performing remote
+                  teams.
+                </p>
+
+                <div class="story-highlight">
+                  <strong>What drives me:</strong> Solving complex technical challenges that have
+                  measurable business impact, while mentoring teams and sharing knowledge through
+                  speaking and writing.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe">
+            <div class="wireframe-header">Featured Projects - Case Studies</div>
+            <div class="projects-section">
+              <h2 class="section-title">Featured Projects</h2>
+              <p class="section-subtitle">Enterprise solutions that drive business results</p>
+
+              <div class="projects-grid">
+                <div class="project-card">
+                  <div class="project-image">
+                    Screenshots/Demo<br />
+                    Cybersecurity Platform UI
+                  </div>
+                  <div class="project-content">
+                    <h3 class="project-title">Enterprise Cybersecurity Platform</h3>
+                    <p class="project-description">
+                      Single-handedly built backend serving 720+ CISOs across Fortune 500 companies,
+                      integrating AI for insights and automated reporting.
+                    </p>
+                    <div class="project-metrics">
+                      💰 $M+ Revenue Driver | 👥 2,500+ Users | 📊 15+ Enterprise Renewals
+                    </div>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Spring Boot</span>
+                      <span class="tech-tag">React</span>
+                      <span class="tech-tag">PostgreSQL</span>
+                      <span class="tech-tag">ChatGPT</span>
+                      <span class="tech-tag">AWS</span>
+                    </div>
+                    <a href="/case-study/cybersecurity" class="btn btn-primary"
+                      >View Case Study →</a
+                    >
+                  </div>
+                </div>
+
+                <div class="project-card">
+                  <div class="project-image">
+                    Architecture Diagram<br />
+                    AI Processing Flow
+                  </div>
+                  <div class="project-content">
+                    <h3 class="project-title">AI Document Processing System</h3>
+                    <p class="project-description">
+                      Orchestrated 11 ML models to process 1,000+ documents/night with 99% accuracy.
+                      System success led to formation of new company.
+                    </p>
+                    <div class="project-metrics">
+                      🤖 99% Accuracy | 📄 1000+ Docs/Night | 🏢 Company Formation
+                    </div>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Kafka</span>
+                      <span class="tech-tag">ML Models</span>
+                      <span class="tech-tag">Redis</span>
+                      <span class="tech-tag">Docker</span>
+                    </div>
+                    <a href="/case-study/ai-processing" class="btn btn-primary"
+                      >View Case Study →</a
+                    >
+                  </div>
+                </div>
+
+                <div class="project-card">
+                  <div class="project-image">
+                    Code Framework<br />
+                    Template Structure
+                  </div>
+                  <div class="project-content">
+                    <h3 class="project-title">Code Generation Framework</h3>
+                    <p class="project-description">
+                      Created framework automating 75% of application development, enabling
+                      migration of 150+ legacy systems across 15+ teams.
+                    </p>
+                    <div class="project-metrics">
+                      ⚡ 75% Automation | 🏗️ 150+ Apps | 👥 15+ Teams
+                    </div>
+                    <div class="tech-stack">
+                      <span class="tech-tag">Java</span>
+                      <span class="tech-tag">Templates</span>
+                      <span class="tech-tag">Maven</span>
+                      <span class="tech-tag">Spring Boot</span>
+                      <span class="tech-tag">Angular</span>
+                    </div>
+                    <a href="/case-study/code-framework" class="btn btn-primary"
+                      >View Case Study →</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div style="text-align: center">
+                <a
+                  href="/projects"
+                  class="btn btn-secondary"
+                  style="color: #1a472a; border-color: #1a472a"
+                  >View All Projects →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe">
+            <div class="wireframe-header">Blog Section - Medium Integration</div>
+            <div class="blog-section">
+              <h2 class="section-title">Technical Insights & Thoughts</h2>
+              <p class="section-subtitle">
+                Sharing knowledge about architecture, AI, and engineering leadership
+              </p>
+
+              <div class="blog-grid">
+                <div class="blog-card">
+                  <div class="blog-image">Medium Article 1<br />Thumbnail</div>
+                  <div class="blog-content">
+                    <h3 class="blog-title">How I Built a Code Generation Framework</h3>
+                    <p class="blog-excerpt">
+                      Deep dive into the architecture decisions and design patterns that enabled 75%
+                      automation...
+                    </p>
+                    <div class="blog-meta">
+                      <span>5 min read</span>
+                      <span>Jan 15, 2025</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="blog-card">
+                  <div class="blog-image">Medium Article 2<br />Thumbnail</div>
+                  <div class="blog-content">
+                    <h3 class="blog-title">Scaling AI Systems for Enterprise</h3>
+                    <p class="blog-excerpt">
+                      Lessons from processing millions of documents with 99% accuracy at enterprise
+                      scale...
+                    </p>
+                    <div class="blog-meta">
+                      <span>8 min read</span>
+                      <span>Jan 10, 2025</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="blog-card">
+                  <div class="blog-image">Medium Article 3<br />Thumbnail</div>
+                  <div class="blog-content">
+                    <h3 class="blog-title">Building Remote Engineering Teams</h3>
+                    <p class="blog-excerpt">
+                      Best practices from leading distributed teams and scaling blockchain
+                      practices...
+                    </p>
+                    <div class="blog-meta">
+                      <span>6 min read</span>
+                      <span>Jan 5, 2025</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="text-align: center">
+                <a
+                  href="https://medium.com/@arunabhpriyadarshi"
+                  class="btn btn-secondary"
+                  style="color: #1a472a; border-color: #1a472a"
+                  >Read All Articles →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="wireframe">
+            <div class="wireframe-header">Contact Section - Conversion Focus</div>
+            <div class="contact-section">
+              <h2 class="contact-title">Let's Build Something Great Together</h2>
+              <p class="contact-subtitle">
+                Open to remote Tech Lead & Senior Architect opportunities
+              </p>
+
+              <div class="contact-cta-group">
+                <a href="mailto:arunabhmaster@gmail.com" class="btn btn-primary">Email Me</a>
+                <a href="https://linkedin.com/in/arunabhpriyadarshi" class="btn btn-secondary"
+                  >LinkedIn</a
+                >
+                <a href="https://calendly.com/arunabh" class="btn btn-secondary">Schedule Call</a>
+                <a href="/resume.pdf" class="btn btn-secondary">Download Resume</a>
+              </div>
+
+              <div class="footer-info">
+                <p>&copy; 2025 Arunabh Priyadarshi. Built with Angular & passion for clean code.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Angular Implementation Guide -->
+      <div class="section">
+        <div class="section-header">⚙️ Angular Implementation Guide</div>
+        <div class="section-content">
+          <div class="instruction-box">
+            <div class="instruction-title">🚀 Step-by-Step Implementation</div>
+
+            <h3>Phase 1: Project Setup (Day 1)</h3>
+            <div class="code-block">
+              # Create new Angular project ng new arunabh-portfolio --routing --style=scss
+              --skip-git=false # Navigate to project cd arunabh-portfolio # Add Angular Material ng
+              add @angular/material # Add Angular Flex Layout ng add @angular/flex-layout # Add
+              Angular Animations npm install @angular/animations # Install additional dependencies
+              npm install aos # Animate On Scroll npm install @fortawesome/fontawesome-free # Icons
+              npm install intersection-observer # For lazy loading
+            </div>
+
+            <h3>Phase 2: Component Structure (Day 2-3)</h3>
+            <div class="code-block">
+              # Generate components ng generate component components/header ng generate component
+              components/hero ng generate component components/story ng generate component
+              components/projects ng generate component components/project-card ng generate
+              component components/blog ng generate component components/blog-card ng generate
+              component components/contact ng generate component components/footer # Generate
+              services ng generate service services/medium ng generate service services/analytics #
+              Generate interfaces ng generate interface models/project ng generate interface
+              models/blog-post
+            </div>
+
+            <h3>Phase 3: Core Components (Day 4-7)</h3>
+
+            <h4>Hero Component (src/app/components/hero/hero.component.ts):</h4>
+            <div class="code-block">
+              import { Component, OnInit } from '@angular/core'; import { trigger, state, style,
+              transition, animate } from '@angular/animations'; @Component({ selector: 'app-hero',
+              templateUrl: './hero.component.html', styleUrls: ['./hero.component.scss'],
+              animations: [ trigger('slideInUp', [ state('in', style({transform: 'translateY(0)'})),
+              transition('void => *', [ style({transform: 'translateY(100px)', opacity: 0}),
+              animate(1000) ]) ]) ] }) export class HeroComponent implements OnInit { metrics = [ {
+              value: '$M+', label: 'Revenue Impact' }, { value: '2,500+', label: 'Enterprise Users'
+              }, { value: '3x', label: 'Code Champion' } ]; constructor() { } ngOnInit(): void { //
+              Initialize animations or load data } scrollToProjects(): void { const element =
+              document.getElementById('projects'); element?.scrollIntoView({ behavior: 'smooth' });
+              } openContact(): void { const element = document.getElementById('contact');
+              element?.scrollIntoView({ behavior: 'smooth' }); } }
+            </div>
+
+            <h4>Hero Component Template (hero.component.html):</h4>
+            <div class="code-block">
+              &lt;section class="hero-section" [@slideInUp]&gt; &lt;div class="container"&gt;
+              &lt;div class="hero-grid" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="60px"
+              fxLayoutAlign="center center"&gt; &lt;!-- Profile Image Section --&gt; &lt;div
+              class="hero-image-area" fxFlex="400px" fxFlex.lt-md="100"&gt; &lt;div
+              class="profile-image"&gt; &lt;img src="assets/images/arunabh-profile.jpg" alt="Arunabh
+              Priyadarshi - Senior Software Engineer" loading="eager"&gt; &lt;/div&gt; &lt;div
+              class="availability-badge"&gt; &lt;fa-icon [icon]="['fas', 'circle']"
+              class="status-icon"&gt;&lt;/fa-icon&gt; Available for Remote Roles &lt;/div&gt;
+              &lt;/div&gt; &lt;!-- Hero Content --&gt; &lt;div class="hero-content" fxFlex="1"
+              fxFlex.lt-md="100"&gt; &lt;h1 class="hero-title"&gt;ARUNABH PRIYADARSHI&lt;/h1&gt;
+              &lt;p class="hero-subtitle"&gt;Senior Software Engineer &amp; Technical
+              Leader&lt;/p&gt; &lt;p class="hero-tagline"&gt;"Building enterprise products that
+              drive revenue and scale"&lt;/p&gt; &lt;!-- Metrics Grid --&gt; &lt;div
+              class="metrics-grid" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px"&gt;
+              &lt;div *ngFor="let metric of metrics" class="metric-card" fxFlex="1"&gt; &lt;div
+              class="metric-value"&gt;{{ metric.value }}&lt;/div&gt; &lt;div
+              class="metric-label"&gt;{{ metric.label }}&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;
+              &lt;!-- CTA Buttons --&gt; &lt;div class="cta-group" fxLayout="row"
+              fxLayout.lt-sm="column" fxLayoutGap="16px"&gt; &lt;button mat-raised-button
+              color="accent" class="btn-primary" (click)="scrollToProjects()"&gt; View My Work
+              &lt;/button&gt; &lt;button mat-stroked-button class="btn-secondary"
+              (click)="openContact()"&gt; Let's Talk &lt;/button&gt; &lt;a mat-stroked-button
+              href="assets/resume/Arunabh-Priyadarshi-Resume.pdf" target="_blank"
+              class="btn-secondary"&gt; Download Resume &lt;/a&gt; &lt;/div&gt; &lt;/div&gt;
+              &lt;/div&gt; &lt;/div&gt; &lt;/section&gt;
+            </div>
+
+            <h4>Hero Component Styles (hero.component.scss):</h4>
+            <div class="code-block">
+              .hero-section { background: linear-gradient(135deg, #1a472a 0%, #2c5f3d 100%); color:
+              white; padding: 80px 0; min-height: 100vh; display: flex; align-items: center;
+              .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; } .hero-grid {
+              align-items: center; } .hero-image-area { display: flex; flex-direction: column;
+              align-items: center; text-align: center; .profile-image { width: 300px; height: 300px;
+              border-radius: 50%; overflow: hidden; border: 4px solid rgba(255, 255, 255, 0.3);
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); margin-bottom: 20px; img { width: 100%;
+              height: 100%; object-fit: cover; } } .availability-badge { background: #27ae60; color:
+              white; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;
+              display: flex; align-items: center; gap: 8px; .status-icon { color: #2ecc71;
+              font-size: 8px; animation: pulse 2s infinite; } } } .hero-content { .hero-title {
+              font-size: 52px; font-weight: 700; margin-bottom: 16px; line-height: 1.1; @media
+              (max-width: 768px) { font-size: 36px; text-align: center; } } .hero-subtitle {
+              font-size: 24px; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); font-weight:
+              500; @media (max-width: 768px) { font-size: 20px; text-align: center; } }
+              .hero-tagline { font-size: 20px; margin-bottom: 40px; font-style: italic; color:
+              rgba(255, 255, 255, 0.8); @media (max-width: 768px) { font-size: 18px; text-align:
+              center; } } .metrics-grid { margin-bottom: 40px; .metric-card { background: rgba(255,
+              255, 255, 0.1); padding: 20px; border-radius: 12px; text-align: center; border: 1px
+              solid rgba(255, 255, 255, 0.2); transition: transform 0.3s ease; &:hover { transform:
+              translateY(-5px); } .metric-value { font-size: 28px; font-weight: 700; color: #e74c3c;
+              margin-bottom: 5px; } .metric-label { font-size: 14px; color: rgba(255, 255, 255,
+              0.8); } } } .cta-group { .btn-primary, .btn-secondary { padding: 14px 28px; font-size:
+              16px; font-weight: 600; border-radius: 8px; text-transform: none; transition: all 0.3s
+              ease; } .btn-primary { background: #e74c3c; &:hover { background: #c0392b; transform:
+              translateY(-2px); } } .btn-secondary { border: 2px solid rgba(255, 255, 255, 0.4);
+              color: white; &:hover { background: rgba(255, 255, 255, 0.1); transform:
+              translateY(-2px); } } } } } @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5;
+              } 100% { opacity: 1; } }
+            </div>
+
+            <h3>Phase 4: Medium Integration Service (Day 8)</h3>
+            <div class="code-block">
+              // medium.service.ts import { Injectable } from '@angular/core'; import { HttpClient }
+              from '@angular/common/http'; import { Observable } from 'rxjs'; import { map } from
+              'rxjs/operators'; export interface BlogPost { title: string; link: string;
+              description: string; pubDate: string; thumbnail?: string; categories?: string[];
+              author: string; } @Injectable({ providedIn: 'root' }) export class MediumService {
+              private readonly RSS_TO_JSON_API = 'https://api.rss2json.com/v1/api.json'; private
+              readonly MEDIUM_RSS_URL = 'https://medium.com/@arunabhpriyadarshi/feed';
+              constructor(private http: HttpClient) { } getBlogPosts(): Observable&lt;BlogPost[]&gt;
+              { const url =
+              `${this.RSS_TO_JSON_API}?rss_url=${encodeURIComponent(this.MEDIUM_RSS_URL)}`; return
+              this.http.get&lt;any&gt;(url).pipe( map(response => { if (response.status === 'ok') {
+              return response.items.slice(0, 6).map((item: any) => ({ title: item.title, link:
+              item.link, description: this.cleanDescription(item.description || item.content),
+              pubDate: new Date(item.pubDate).toLocaleDateString(), thumbnail: item.thumbnail ||
+              this.extractImageFromContent(item.content), categories: item.categories || [], author:
+              item.author || 'Arunabh Priyadarshi' })); } return []; }) ); } private
+              cleanDescription(description: string): string { // Remove HTML tags and limit length
+              const div = document.createElement('div'); div.innerHTML = description; const text =
+              div.textContent || div.innerText || ''; return text.length > 150 ? text.substring(0,
+              150) + '...' : text; } private extractImageFromContent(content: string): string { //
+              Extract first image from Medium content const imgRegex =
+              /&lt;img[^&gt;]+src="([^"&gt;]+)"/; const match = content.match(imgRegex); return
+              match ? match[1] : 'assets/images/blog-placeholder.jpg'; } }
+            </div>
+
+            <h3>Phase 5: Deployment (Day 9-10)</h3>
+            <div class="code-block">
+              # Build for production ng build --prod # Deploy to Netlify (recommended) npm install
+              -g netlify-cli netlify deploy --prod --dir=dist/arunabh-portfolio # Or deploy to
+              Vercel npm install -g vercel vercel --prod # Or Firebase npm install -g firebase-tools
+              firebase init hosting firebase deploy
+            </div>
+          </div>
+
+          <div class="instruction-box">
+            <div class="instruction-title">📱 Responsive Design Checklist</div>
+            <ul class="checklist">
+              <li>Hero section stacks vertically on mobile</li>
+              <li>Navigation collapses to hamburger menu</li>
+              <li>Project cards display in single column</li>
+              <li>Metrics grid becomes vertical on small screens</li>
+              <li>Font sizes scale appropriately</li>
+              <li>Images are optimized and responsive</li>
+              <li>Touch targets are minimum 44px</li>
+              <li>Text remains readable on all devices</li>
+            </ul>
+          </div>
+
+          <div class="instruction-box">
+            <div class="instruction-title">🎯 Key Success Metrics</div>
+            <ul class="checklist">
+              <li>Page loads in under 3 seconds</li>
+              <li>90+ Lighthouse performance score</li>
+              <li>Professional credibility established immediately</li>
+              <li>Clear path from hero to contact</li>
+              <li>All links and CTAs work perfectly</li>
+              <li>Mobile experience is smooth</li>
+              <li>Medium blog integration updates automatically</li>
+              <li>Resume downloads successfully</li>
+              <li>Contact forms submit without errors</li>
+              <li>SEO meta tags are properly configured</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assets & Content Preparation -->
+      <div class="section">
+        <div class="section-header">📸 Assets & Content Preparation</div>
+        <div class="section-content">
+          <div class="instruction-box">
+            <div class="instruction-title">🖼️ Required Assets</div>
+
+            <h3>Professional Photo Requirements:</h3>
+            <ul>
+              <li><strong>Size:</strong> Minimum 300x300px, ideal 600x600px</li>
+              <li><strong>Format:</strong> JPG or WebP for best performance</li>
+              <li><strong>Quality:</strong> High-resolution, professionally lit</li>
+              <li><strong>Style:</strong> Business casual, friendly but serious</li>
+              <li><strong>Background:</strong> Clean, uncluttered</li>
+              <li><strong>File size:</strong> Under 100KB optimized</li>
+            </ul>
+
+            <h3>Project Screenshots/Mockups:</h3>
+            <ul>
+              <li>
+                <strong>Cybersecurity Platform:</strong> Dashboard screenshots, charts, UI mockups
+              </li>
+              <li><strong>AI Document Processing:</strong> Architecture diagrams, flow charts</li>
+              <li><strong>Code Framework:</strong> Code examples, template structure</li>
+              <li><strong>Size:</strong> 800x500px or 16:10 aspect ratio</li>
+              <li><strong>Format:</strong> WebP for performance, PNG for transparency</li>
+            </ul>
+
+            <h3>Resume & Documents:</h3>
+            <ul>
+              <li><strong>Resume PDF:</strong> ATS-optimized version we created</li>
+              <li><strong>File name:</strong> Arunabh-Priyadarshi-Resume.pdf</li>
+              <li><strong>Size:</strong> Under 1MB</li>
+            </ul>
+          </div>
+
+          <div class="instruction-box">
+            <div class="instruction-title">📝 Content Checklist</div>
+            <ul class="checklist">
+              <li>Professional headshot (300x300px minimum)</li>
+              <li>3-4 project screenshots/mockups</li>
+              <li>Updated resume PDF</li>
+              <li>Medium profile URL for RSS integration</li>
+              <li>LinkedIn profile URL</li>
+              <li>Email address for contact</li>
+              <li>Calendly or scheduling link</li>
+              <li>GitHub profile URL</li>
+              <li>Domain name decision (your-name.com)</li>
+              <li>Google Analytics account setup</li>
+            </ul>
+          </div>
+
+          <div class="instruction-box">
+            <div class="instruction-title">🚀 Go-Live Checklist</div>
+            <ul class="checklist">
+              <li>All images optimized and loading</li>
+              <li>Medium RSS feed pulling articles</li>
+              <li>Contact form submissions working</li>
+              <li>Resume download functioning</li>
+              <li>All external links opening correctly</li>
+              <li>Mobile responsiveness tested</li>
+              <li>Page speed optimized (90+ Lighthouse)</li>
+              <li>SEO meta tags configured</li>
+              <li>Analytics tracking implemented</li>
+              <li>Domain and SSL certificate active</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

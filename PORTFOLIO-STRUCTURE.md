@@ -69,6 +69,7 @@ Contains reusable data referenced throughout the portfolio:
 ```
 
 **Supported social platforms:**
+
 - `github`, `linkedin`, `medium`, `calendly`
 
 ### Personal Information
@@ -112,6 +113,7 @@ Professional achievement metrics displayed in the hero section:
 ```
 
 **Common metric types:**
+
 - Revenue impact, team leadership, code contributions, user metrics
 
 ### Story Section
@@ -122,15 +124,14 @@ Personal narrative and career highlights:
 {
   "story": {
     "title": "string (section title)",
-    "paragraphs": [
-      "string (paragraph content)"
-    ],
+    "paragraphs": ["string (paragraph content)"],
     "highlight": "string (HTML content with career highlights)"
   }
 }
 ```
 
 **Highlight format:**
+
 - Uses HTML structure: `<strong>Title:</strong><ul><li>Item</li></ul>`
 - Rendered with Material Design icons in the UI
 - Supports justified text alignment
@@ -173,6 +174,7 @@ Hierarchical project organization:
 ```
 
 **Project categories:**
+
 - `professional`: Enterprise/corporate projects
 - `side-projects`: Personal/open-source projects
 - `freelance`: Client work
@@ -202,6 +204,7 @@ Technical skills organized by categories:
 ```
 
 **Skill levels:**
+
 - 1: Beginner, 2: Intermediate, 3: Advanced, 4: Expert, 5: Master
 
 ### Achievements
@@ -223,12 +226,14 @@ Professional achievements and certifications:
 ```
 
 **Achievement types:**
+
 - `competition`: Coding contests, hackathons
 - `speaking`: Conference talks, presentations
 - `certification`: Professional certificates
 - `academic`: Academic achievements
 
 **Certificate integration:**
+
 - Local assets stored in `public/assets/certificates/`
 - Displayed in modal dialog with image viewer
 - Supports various image formats (JPG, PNG, PDF)

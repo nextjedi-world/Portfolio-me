@@ -6,17 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
+    "test": "ng test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "private": true,
   "dependencies": {
@@ -44,6 +36,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lefthook": "^2.2.2",
+    "prettier": "^3.10.1",
     "typescript": "~5.8.2"
   }
 }

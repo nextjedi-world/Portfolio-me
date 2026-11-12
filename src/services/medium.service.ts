@@ -21,7 +21,7 @@ interface MediumRSSItem {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MediumService {
   private readonly RSS_TO_JSON_API = 'https://api.rss2json.com/v1/api.json';
@@ -31,12 +31,12 @@ export class MediumService {
 
   getBlogPosts(mediumRssUrl: string, fallbackPosts: BlogPost[] = []): Observable<BlogPost[]> {
     const url = `${this.RSS_TO_JSON_API}?rss_url=${encodeURIComponent(mediumRssUrl)}`;
-    
+
     return this.http.get<MediumRSSResponse>(url).pipe(
       timeout(this.REQUEST_TIMEOUT),
-      map(response => {
+      map((response) => {
         if (response.status === 'ok' && response.items?.length > 0) {
-          return response.items.slice(0, 6).map(item => this.transformMediumItem(item));
+          return response.items.slice(0, 6).map((item) => this.transformMediumItem(item));
         }
         // Return fallback posts if API response is empty
         return fallbackPosts;
@@ -45,7 +45,7 @@ export class MediumService {
         console.warn('Medium RSS feed failed, using fallback posts:', error.message);
         // Return fallback posts on error
         return of(fallbackPosts);
-      })
+      }),
     );
   }
 
@@ -56,7 +56,10 @@ export class MediumService {
       readTime: this.estimateReadTime(item.content || item.description || ''),
       publishedDate: this.formatDate(item.pubDate),
       url: item.link,
-      thumbnail: item.thumbnail || this.extractImageFromContent(item.content || '') || 'assets/images/blog-placeholder.jpg'
+      thumbnail:
+        item.thumbnail ||
+        this.extractImageFromContent(item.content || '') ||
+        'assets/images/blog-placeholder.jpg',
     };
   }
 
@@ -89,10 +92,10 @@ export class MediumService {
   private formatDate(dateString: string): string {
     try {
       const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
       });
     } catch (error) {
       return dateString;

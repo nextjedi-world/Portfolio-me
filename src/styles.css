@@ -12,7 +12,7 @@
   --color-light: var(--portfolio-background-light);
   --color-text: var(--portfolio-text);
   --color-text-secondary: var(--portfolio-text-secondary);
-  
+
   /* Typography */
   --font-primary: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
   --font-heading: 'Inter Tight', 'Inter', sans-serif;
@@ -22,12 +22,12 @@
   --font-size-card: 22px;
   --font-size-body: 16px;
   --font-size-small: 14px;
-  
+
   /* Spacing */
   --spacing-section: 80px;
   --spacing-card: 30px;
   --spacing-gap: 20px;
-  
+
   /* Effects */
   --border-radius: 12px;
   --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -58,7 +58,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
@@ -254,7 +259,7 @@ a:hover {
     max-width: 100%;
     padding: 0 2rem;
   }
-  
+
   :root {
     --spacing-section: 60px;
     --spacing-card: 24px;
@@ -265,11 +270,11 @@ a:hover {
   .container {
     padding: 0 1rem;
   }
-  
+
   .section-title {
     font-size: 32px;
   }
-  
+
   :root {
     --font-size-hero: 36px;
     --font-size-section: 28px;
@@ -278,7 +283,7 @@ a:hover {
     --spacing-card: 20px;
     --spacing-gap: 16px;
   }
-  
+
   .btn {
     width: 100%;
     justify-content: center;
@@ -289,7 +294,7 @@ a:hover {
   .container {
     padding: 0 0.75rem;
   }
-  
+
   :root {
     --font-size-hero: 28px;
     --font-size-section: 24px;
@@ -306,7 +311,7 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
@@ -317,7 +322,7 @@ a:hover {
     --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     --box-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
   }
-  
+
   .card {
     border: 2px solid var(--color-neutral);
   }

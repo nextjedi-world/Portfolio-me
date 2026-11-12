@@ -4,7 +4,7 @@ import { environment } from '../environments/environment';
 declare let gtag: Function;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AnalyticsService {
   private isInitialized = false;
@@ -12,7 +12,7 @@ export class AnalyticsService {
 
   constructor() {
     this.measurementId = environment.analytics.measurementId;
-    
+
     // Initialize Google Analytics only if measurement ID is provided and in browser environment
     if (this.measurementId && this.isBrowser() && this.isProd()) {
       this.initializeGA();
@@ -47,7 +47,7 @@ export class AnalyticsService {
     if (this.isInitialized && typeof gtag !== 'undefined') {
       gtag('config', this.measurementId, {
         page_path: url,
-        page_title: title
+        page_title: title,
       });
     }
   }
@@ -58,7 +58,7 @@ export class AnalyticsService {
       gtag('event', action, {
         event_category: category,
         event_label: label,
-        value: value
+        value: value,
       });
     }
   }
@@ -84,8 +84,7 @@ export class AnalyticsService {
   }
 
   private isProd(): boolean {
-    return window.location.hostname !== 'localhost' && 
-           window.location.hostname !== '127.0.0.1';
+    return window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
   }
 
   private isBrowser(): boolean {
