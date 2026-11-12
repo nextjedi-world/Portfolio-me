@@ -8,7 +8,7 @@ Please download the following certificates from Google Drive and save them with 
 2. **code-gladiators-2019.jpg** - Code Gladiators 2019
    - Source: https://drive.google.com/file/d/1Kk9FuI9JP0_YjF2MuFKFa7GqnqikPJCj/view?usp=sharing
 
-3. **code-gladiators-2018.jpg** - Code Gladiators 2018  
+3. **code-gladiators-2018.jpg** - Code Gladiators 2018
    - Source: https://drive.google.com/file/d/1M5AbY9TmACSvbliAdKjHsFqXQQuyYALq/view?usp=sharing
 
 4. **code-gladiators-2017.jpg** - Code Gladiators 2017
@@ -27,6 +27,7 @@ Please download the following certificates from Google Drive and save them with 
    - Source: https://drive.google.com/file/d/1oMRgdT4xeid-_jURjWOANEFq2MWLVR6J/view?usp=drive_link
 
 ## How to Download:
+
 1. Click on each Google Drive link
 2. Click the download button (or use File > Download)
 3. Save with the exact filename listed above

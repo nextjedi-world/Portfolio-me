@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { PortfolioData, Project } from '../models/portfolio.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PortfolioService {
   private portfolioData = signal<PortfolioData | null>(null);
@@ -32,21 +32,24 @@ export class PortfolioService {
     this.loading.set(true);
     this.error.set(null);
 
-    this.http.get<PortfolioData>('/data/portfolio.json').pipe(
-      map(data => {
-        // Resolve all references in the data
-        const resolvedData = this.resolveReferences(data);
-        this.portfolioData.set(resolvedData);
-        this.loading.set(false);
-        return resolvedData;
-      }),
-      catchError(error => {
-        console.error('Failed to load portfolio data:', error);
-        this.error.set('Failed to load portfolio data');
-        this.loading.set(false);
-        return of(null);
-      })
-    ).subscribe();
+    this.http
+      .get<PortfolioData>('/data/portfolio.json')
+      .pipe(
+        map((data) => {
+          // Resolve all references in the data
+          const resolvedData = this.resolveReferences(data);
+          this.portfolioData.set(resolvedData);
+          this.loading.set(false);
+          return resolvedData;
+        }),
+        catchError((error) => {
+          console.error('Failed to load portfolio data:', error);
+          this.error.set('Failed to load portfolio data');
+          this.loading.set(false);
+          return of(null);
+        }),
+      )
+      .subscribe();
   }
 
   private resolveReferences(data: any): any {
@@ -55,7 +58,7 @@ export class PortfolioService {
     }
 
     if (Array.isArray(data)) {
-      return data.map(item => this.resolveReferences(item));
+      return data.map((item) => this.resolveReferences(item));
     }
 
     const resolved: any = {};
@@ -77,7 +80,7 @@ export class PortfolioService {
   private resolveReference(reference: string, data: any): any {
     // Remove @ and split by dots
     const path = reference.substring(1).split('.');
-    
+
     let current = data;
     for (const segment of path) {
       if (current && typeof current === 'object' && segment in current) {
@@ -87,7 +90,7 @@ export class PortfolioService {
         return reference; // Return original reference if resolution fails
       }
     }
-    
+
     return current;
   }
 
@@ -109,8 +112,8 @@ export class PortfolioService {
 
     // Flatten all projects from all categories
     const allProjects: Project[] = [];
-    Object.values(data.projectCategories).forEach(category => {
-      Object.values(category.projects).forEach(project => {
+    Object.values(data.projectCategories).forEach((category) => {
+      Object.values(category.projects).forEach((project) => {
         allProjects.push(project);
       });
     });
@@ -125,7 +128,7 @@ export class PortfolioService {
   getProjectsByCategory(categoryKey: string) {
     const categories = this.getProjectCategories();
     if (!categories[categoryKey]) return [];
-    
+
     return Object.values(categories[categoryKey].projects);
   }
 
@@ -136,14 +139,14 @@ export class PortfolioService {
   getFeaturedProjectsByCategory(categoryKey: string) {
     const categories = this.getProjectCategories();
     const category = categories[categoryKey];
-    
+
     if (!category) return [];
-    
-    return category.featured.map(projectId => category.projects[projectId]).filter(Boolean);
+
+    return category.featured.map((projectId) => category.projects[projectId]).filter(Boolean);
   }
 
   getProjectById(id: string) {
-    return this.getProjects().find(project => project.id === id) || null;
+    return this.getProjects().find((project) => project.id === id) || null;
   }
 
   getSkills() {
@@ -189,17 +192,19 @@ export class PortfolioService {
   // Get project by URL slug
   getProjectBySlug(slug: string) {
     const projects = this.getProjects();
-    return projects.find(project => {
-      const projectSlug = this.generateSlug(project.title);
-      return projectSlug === slug;
-    }) || null;
+    return (
+      projects.find((project) => {
+        const projectSlug = this.generateSlug(project.title);
+        return projectSlug === slug;
+      }) || null
+    );
   }
 
   // Get all projects with their generated slugs
   getProjectsWithSlugs() {
-    return this.getProjects().map(project => ({
+    return this.getProjects().map((project) => ({
       ...project,
-      slug: this.generateSlug(project.title)
+      slug: this.generateSlug(project.title),
     }));
   }
 
@@ -212,7 +217,7 @@ export class PortfolioService {
       description: category.description,
       icon: category.icon,
       count: Object.keys(category.projects).length,
-      featured: category.featured
+      featured: category.featured,
     }));
   }
 }

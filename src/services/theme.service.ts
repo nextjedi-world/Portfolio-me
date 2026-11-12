@@ -6,7 +6,7 @@ export type TypographyMode = 'compact' | 'standard' | 'large' | 'display';
 export type LayoutMode = 'compact' | 'standard' | 'spacious' | 'mobile';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private currentTheme = signal<Theme | null>(null);
@@ -24,7 +24,7 @@ export class ThemeService {
       neutral: '#95a5a6',
       light: '#f8f9fa',
       text: '#2c3e50',
-      textSecondary: '#6c757d'
+      textSecondary: '#6c757d',
     },
     techBlue: {
       primary: '#2563eb',
@@ -34,7 +34,7 @@ export class ThemeService {
       neutral: '#6b7280',
       light: '#f3f4f6',
       text: '#1f2937',
-      textSecondary: '#6b7280'
+      textSecondary: '#6b7280',
     },
     creative: {
       primary: '#6366f1',
@@ -44,7 +44,7 @@ export class ThemeService {
       neutral: '#6b7280',
       light: '#f9fafb',
       text: '#1f2937',
-      textSecondary: '#6b7280'
+      textSecondary: '#6b7280',
     },
     executive: {
       primary: '#1f2937',
@@ -54,8 +54,8 @@ export class ThemeService {
       neutral: '#9ca3af',
       light: '#f9fafb',
       text: '#111827',
-      textSecondary: '#6b7280'
-    }
+      textSecondary: '#6b7280',
+    },
   };
 
   private readonly typographyModes = {
@@ -64,58 +64,58 @@ export class ThemeService {
       sectionTitle: '32px',
       cardTitle: '20px',
       body: '14px',
-      small: '12px'
+      small: '12px',
     },
     standard: {
       heroTitle: '52px',
       sectionTitle: '36px',
       cardTitle: '22px',
       body: '16px',
-      small: '14px'
+      small: '14px',
     },
     large: {
       heroTitle: '64px',
       sectionTitle: '44px',
       cardTitle: '28px',
       body: '20px',
-      small: '16px'
+      small: '16px',
     },
     display: {
       heroTitle: '72px',
       sectionTitle: '48px',
       cardTitle: '32px',
       body: '22px',
-      small: '18px'
-    }
+      small: '18px',
+    },
   };
 
   private readonly layoutModes = {
     compact: {
       sectionPadding: '60px',
       cardPadding: '20px',
-      gap: '16px'
+      gap: '16px',
     },
     standard: {
       sectionPadding: '80px',
       cardPadding: '30px',
-      gap: '20px'
+      gap: '20px',
     },
     spacious: {
       sectionPadding: '120px',
       cardPadding: '40px',
-      gap: '32px'
+      gap: '32px',
     },
     mobile: {
       sectionPadding: '40px',
       cardPadding: '20px',
-      gap: '16px'
-    }
+      gap: '16px',
+    },
   };
 
   constructor() {
     // Auto-detect system preferences
     this.detectSystemPreferences();
-    
+
     // Update theme when components change
     effect(() => {
       this.updateTheme();
@@ -181,10 +181,11 @@ export class ThemeService {
       colors,
       fonts: {
         primary: "Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        heading: "Inter Tight, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        heading:
+          "Inter Tight, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
       },
       typography,
-      spacing
+      spacing,
     };
 
     this.currentTheme.set(theme);
@@ -195,7 +196,7 @@ export class ThemeService {
     if (!theme) return;
 
     const root = document.documentElement;
-    
+
     // Apply color variables
     root.style.setProperty('--color-primary', theme.colors.primary);
     root.style.setProperty('--color-primary-light', theme.colors.primaryLight);

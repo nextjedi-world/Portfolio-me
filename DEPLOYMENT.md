@@ -81,6 +81,7 @@ cat .vercel/project.json
 ```
 
 You'll see something like:
+
 ```json
 {
   "projectId": "prj_xxxxxxxxxxxxxxxxxxxx",
@@ -105,15 +106,16 @@ Add the following secrets to your GitHub repository:
 
 Add these three secrets:
 
-| Secret Name | Description | Example |
-|-------------|-------------|---------|
-| `VERCEL_TOKEN` | Your Vercel authentication token | `xxxxxxxxxxxxxxxxxxx` |
-| `VERCEL_ORG_ID` | Your Vercel organization/team ID | `team_xxxxxxxxxxxxxxxxx` |
-| `VERCEL_PROJECT_ID` | Your Vercel project ID | `prj_xxxxxxxxxxxxxxxxx` |
+| Secret Name         | Description                      | Example                  |
+| ------------------- | -------------------------------- | ------------------------ |
+| `VERCEL_TOKEN`      | Your Vercel authentication token | `xxxxxxxxxxxxxxxxxxx`    |
+| `VERCEL_ORG_ID`     | Your Vercel organization/team ID | `team_xxxxxxxxxxxxxxxxx` |
+| `VERCEL_PROJECT_ID` | Your Vercel project ID           | `prj_xxxxxxxxxxxxxxxxx`  |
 
 ### Setting Each Secret
 
 For each secret:
+
 1. Click **New repository secret**
 2. Enter the **Name** (e.g., `VERCEL_TOKEN`)
 3. Enter the **Secret** value
@@ -130,10 +132,10 @@ name: Build and Deploy to Vercel
 
 on:
   push:
-    branches: [master]      # Deploy on master push
+    branches: [master] # Deploy on master push
   pull_request:
-    branches: [master]      # Preview on PR
-  workflow_dispatch:        # Manual trigger
+    branches: [master] # Preview on PR
+  workflow_dispatch: # Manual trigger
 
 jobs:
   build-and-deploy:
@@ -146,7 +148,7 @@ jobs:
       - Run linting (if available)
       - Run tests (if available)
       - Build application
-      
+
       # Deployment steps
       - Deploy to Production (master only)
       - Deploy Preview (PRs only)
@@ -164,7 +166,9 @@ jobs:
 ### Automatic Deployments
 
 #### Production Deployment
+
 1. **Push to master**:
+
    ```bash
    git add .
    git commit -m "feat: new feature"
@@ -178,7 +182,9 @@ jobs:
    - Updates live site at your custom domain
 
 #### Preview Deployment
+
 1. **Create and push feature branch**:
+
    ```bash
    git checkout -b feature/new-feature
    git add .
@@ -194,12 +200,14 @@ jobs:
 ### Manual Deployment
 
 #### Via GitHub Actions UI
+
 1. Go to **Actions** tab in your repository
 2. Select **Build and Deploy to Vercel** workflow
 3. Click **Run workflow**
 4. Select branch and click **Run workflow**
 
 #### Via Vercel CLI (Development)
+
 ```bash
 # Preview deployment
 vercel
@@ -216,14 +224,18 @@ vercel --prod -e NODE_ENV=production
 ### Common Issues and Solutions
 
 #### 1. GitHub Action Fails with "Vercel Token Invalid"
+
 **Solution**: Regenerate Vercel token and update GitHub secret
+
 ```bash
 # Generate new token at vercel.com/account/tokens
 # Update VERCEL_TOKEN secret in GitHub repository settings
 ```
 
 #### 2. Build Fails During GitHub Action
+
 **Solution**: Check build logs and fix build errors
+
 ```bash
 # Test build locally first
 npm run build
@@ -233,7 +245,9 @@ npm run lint
 ```
 
 #### 3. Wrong Project ID or Org ID
+
 **Solution**: Re-link project and update secrets
+
 ```bash
 # Re-link project
 vercel link --confirm
@@ -243,7 +257,9 @@ cat .vercel/project.json
 ```
 
 #### 4. Deployment Successful but Site Not Updated
+
 **Solution**: Check Vercel dashboard and clear browser cache
+
 - Visit [Vercel Dashboard](https://vercel.com/dashboard)
 - Verify deployment status
 - Check domain configuration
@@ -252,6 +268,7 @@ cat .vercel/project.json
 ### Debug Mode
 
 Enable debug mode in GitHub Actions by adding this secret:
+
 - Name: `ACTIONS_STEP_DEBUG`
 - Value: `true`
 
@@ -289,11 +306,14 @@ vercel --prod
 If your project requires environment variables:
 
 #### In GitHub Actions
+
 Add to repository secrets with `VERCEL_` prefix:
+
 - `VERCEL_GOOGLE_ANALYTICS_ID`
 - `VERCEL_CONTACT_EMAIL`
 
 #### In Vercel Dashboard
+
 1. Go to Project Settings
 2. Click **Environment Variables**
 3. Add variables for each environment:
@@ -319,18 +339,21 @@ To configure custom domains:
 ## Best Practices
 
 ### Security
+
 - ✅ Keep Vercel tokens secure in GitHub Secrets
 - ✅ Use least-privilege access tokens
 - ✅ Regularly rotate authentication tokens
 - ✅ Don't commit `.vercel/` directory to version control
 
 ### Performance
+
 - ✅ Use `npm ci` instead of `npm install` in CI/CD
 - ✅ Cache dependencies in GitHub Actions
 - ✅ Optimize bundle size before deployment
 - ✅ Enable Vercel's automatic optimizations
 
 ### Monitoring
+
 - ✅ Set up Vercel deployment notifications
 - ✅ Monitor GitHub Actions for failed deployments
 - ✅ Use Vercel Analytics for performance insights

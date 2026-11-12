@@ -10,13 +10,13 @@
         "platform": "GitHub"
       },
       "linkedin": {
-        "url": "https://linkedin.com/in/arunabhpriyadarshi", 
+        "url": "https://linkedin.com/in/arunabhpriyadarshi",
         "icon": "linkedin",
         "platform": "LinkedIn"
       },
       "medium": {
         "url": "https://medium.com/@ap2",
-        "icon": "medium", 
+        "icon": "medium",
         "platform": "Medium"
       },
       "sponsor": {
@@ -41,7 +41,7 @@
     "location": "Patna, India",
     "profileImage": "/assets/images/arunabh-profile.jpg"
   },
-  
+
   "metrics": [
     {
       "id": "revenue",
@@ -52,11 +52,11 @@
     {
       "id": "users",
       "value": "2,500+",
-      "label": "Enterprise Users", 
+      "label": "Enterprise Users",
       "description": "Served Fortune 500 CISOs and enterprise executives globally"
     },
     {
-      "id": "achievement", 
+      "id": "achievement",
       "value": "Top 300",
       "label": "of 250K+ Developers",
       "description": "3x National Finalist in India's largest coding competition"
@@ -88,7 +88,12 @@
       "label": "Professional Work",
       "description": "Enterprise solutions that drive business results",
       "icon": "work",
-      "featured": ["cybersecurity-platform", "ai-document-processing", "code-generation-framework", "enterprise-maven-libraries"],
+      "featured": [
+        "cybersecurity-platform",
+        "ai-document-processing",
+        "code-generation-framework",
+        "enterprise-maven-libraries"
+      ],
       "projects": {
         "cybersecurity-platform": {
           "id": "cybersecurity-platform",
@@ -106,7 +111,7 @@
           },
           "techStack": [
             "Spring Boot",
-            "React", 
+            "React",
             "PostgreSQL",
             "Elasticsearch",
             "ChatGPT API",
@@ -124,17 +129,17 @@
           "architecture": "Microservices with Spring Boot backend, React frontend, PostgreSQL + Elasticsearch for data, AWS hosting",
           "challenges": [
             "Integrating 16 different research-backed security metrics",
-            "Building scalable dashboard delegation system", 
+            "Building scalable dashboard delegation system",
             "Implementing ChatGPT for contextual insights",
             "Handling enterprise-scale data processing"
           ]
         },
         "ai-document-processing": {
-          "id": "ai-document-processing", 
+          "id": "ai-document-processing",
           "title": "AI-Powered Document Processing System",
           "description": "Orchestrated 11 ML models (Python/Julia) via Kafka to process bills, receipts, and letters of credit with 99% accuracy, processing 1,000+ documents nightly. Success led to formation of Curl HG.",
           "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop",
-          "category": "professional", 
+          "category": "professional",
           "company": "Curl Tech",
           "duration": "Mar 2020 - Aug 2021",
           "metrics": {
@@ -145,7 +150,7 @@
           },
           "techStack": [
             "Python",
-            "Julia", 
+            "Julia",
             "Apache Kafka",
             "Spring Boot",
             "Redis",
@@ -155,7 +160,7 @@
           "caseStudyUrl": "/case-studies/ai-document-processing",
           "highlights": [
             "Orchestrated 11 different ML models in production pipeline",
-            "Achieved 99% accuracy in document classification and extraction", 
+            "Achieved 99% accuracy in document classification and extraction",
             "Built innovative offline PWA for low-bandwidth ship environments",
             "Processed 1,000+ documents nightly without manual intervention",
             "Success directly led to spin-off company Curl HG formation"
@@ -175,11 +180,11 @@
           "description": "Architected framework with 22 standardized templates that automates 75% of application development, enabling migration of 150+ legacy LotusScript applications across 15+ teams.",
           "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
           "category": "professional",
-          "company": "KPIT Technologies & Gartner", 
+          "company": "KPIT Technologies & Gartner",
           "duration": "Sep 2016 - Nov 2018 (Created), Used at Gartner 2023-2025",
           "metrics": {
             "automation": "75% Code Generation",
-            "applications": "150+ Apps Migrated", 
+            "applications": "150+ Apps Migrated",
             "teams": "15+ Teams Adopted",
             "templates": "22 Standardized Templates"
           },
@@ -188,7 +193,7 @@
             "Template Engine",
             "Maven",
             "Spring Boot",
-            "Angular", 
+            "Angular",
             "Node.js",
             "OWASP Compliance"
           ],
@@ -204,19 +209,19 @@
           "architecture": "Template-based code generation with Maven integration, supports Spring Boot, Angular, Node.js outputs",
           "challenges": [
             "Identifying common patterns across 150+ applications",
-            "Ensuring generated code meets enterprise security standards", 
+            "Ensuring generated code meets enterprise security standards",
             "Building templates flexible enough for different use cases",
             "Training 15+ teams on framework adoption"
           ]
         },
         "engineering-dashboard": {
           "id": "engineering-dashboard",
-          "title": "Engineering Intelligence Dashboard", 
+          "title": "Engineering Intelligence Dashboard",
           "description": "Built automated dashboard integrating JIRA, Confluence, Bitbucket, and Workday APIs, reducing leadership reporting from 1.5 hours to 15 minutes (90% time savings) across 24 projects.",
           "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
           "category": "professional",
           "company": "Gartner",
-          "duration": "Feb 2023 - March 2025", 
+          "duration": "Feb 2023 - March 2025",
           "metrics": {
             "timeSaved": "90% Time Reduction (1.5hrs → 15min)",
             "projects": "24 Projects Tracked",
@@ -227,7 +232,7 @@
             "Spring Boot",
             "React",
             "JIRA API",
-            "Confluence API", 
+            "Confluence API",
             "Bitbucket API",
             "Workday API",
             "PostgreSQL"
@@ -285,7 +290,7 @@
           "id": "blockchain-practice",
           "title": "Enterprise Blockchain Practice",
           "description": "Built and led blockchain practice from 0 to 12 team members, architecting Hyperledger Fabric solutions for asset tokenization and self-sovereign identity.",
-          "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop", 
+          "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop",
           "category": "professional",
           "company": "Curl Tech",
           "duration": "Feb 2019 - Aug 2021",
@@ -297,7 +302,7 @@
           },
           "techStack": [
             "Hyperledger Fabric",
-            "Ethereum", 
+            "Ethereum",
             "Quorum",
             "R3 Corda",
             "Solidity",
@@ -307,7 +312,7 @@
           "highlights": [
             "Built blockchain practice from inception, growing team to 12 members",
             "Architected asset tokenization platform for real-world assets",
-            "Implemented self-sovereign identity using DIDs and Verifiable Credentials", 
+            "Implemented self-sovereign identity using DIDs and Verifiable Credentials",
             "Led research on consensus mechanisms and enterprise adoption",
             "Contributed to government blockchain initiative proposals"
           ],
@@ -317,7 +322,7 @@
     },
     "side-projects": {
       "label": "Side Projects & Open Source",
-      "description": "Personal projects and open-source contributions", 
+      "description": "Personal projects and open-source contributions",
       "icon": "code",
       "featured": ["test-automation-framework"],
       "projects": {
@@ -334,14 +339,7 @@
             "adoption": "15-20 Developers",
             "maintenance": "67% Reduction in UI Test Maintenance"
           },
-          "techStack": [
-            "Selenium WebDriver",
-            "Appium",
-            "JUnit",
-            "GenAI/ChatGPT",
-            "Java",
-            "TestNG"
-          ],
+          "techStack": ["Selenium WebDriver", "Appium", "JUnit", "GenAI/ChatGPT", "Java", "TestNG"],
           "highlights": [
             "Pioneered AI-powered test case generation and updates",
             "Deployed across 9 enterprise applications",
@@ -358,15 +356,30 @@
     "categories": [
       {
         "name": "Backend Development",
-        "skills": ["Java", "Spring Boot", "Python", "Node.js", "Microservices", "REST APIs", "GraphQL"]
+        "skills": [
+          "Java",
+          "Spring Boot",
+          "Python",
+          "Node.js",
+          "Microservices",
+          "REST APIs",
+          "GraphQL"
+        ]
       },
       {
-        "name": "Frontend Development", 
+        "name": "Frontend Development",
         "skills": ["React", "Angular", "TypeScript", "JavaScript", "HTML5", "CSS3", "Redux"]
       },
       {
         "name": "Cloud & DevOps",
-        "skills": ["AWS (EC2, S3, Lambda)", "Docker", "Kubernetes", "Jenkins", "CI/CD", "GitHub Actions"]
+        "skills": [
+          "AWS (EC2, S3, Lambda)",
+          "Docker",
+          "Kubernetes",
+          "Jenkins",
+          "CI/CD",
+          "GitHub Actions"
+        ]
       },
       {
         "name": "Databases",
@@ -378,7 +391,14 @@
       },
       {
         "name": "Blockchain & Web3",
-        "skills": ["Hyperledger Fabric", "Ethereum", "Solidity", "Smart Contracts", "Self-Sovereign Identity", "Zero-Knowledge Proofs"]
+        "skills": [
+          "Hyperledger Fabric",
+          "Ethereum",
+          "Solidity",
+          "Smart Contracts",
+          "Self-Sovereign Identity",
+          "Zero-Knowledge Proofs"
+        ]
       },
       {
         "name": "Testing & Quality",
@@ -386,7 +406,13 @@
       },
       {
         "name": "Architecture & Leadership",
-        "skills": ["Microservices Architecture", "System Design", "Technical Leadership", "Team Building", "Mentoring"]
+        "skills": [
+          "Microservices Architecture",
+          "System Design",
+          "Technical Leadership",
+          "Team Building",
+          "Mentoring"
+        ]
       }
     ]
   },
@@ -407,7 +433,7 @@
     {
       "title": "CodeChef SnackDown Global Rank 445",
       "description": "International competitive programming achievement",
-      "year": "2019", 
+      "year": "2019",
       "type": "competition"
     },
     {
@@ -445,7 +471,7 @@
       "type": "competition"
     },
     {
-      "title": "IBM Bluemix National Hackathon Winner", 
+      "title": "IBM Bluemix National Hackathon Winner",
       "description": "1st Place in national competition",
       "year": "2015",
       "type": "competition",
@@ -500,7 +526,7 @@
       "section": "about"
     },
     {
-      "label": "Projects", 
+      "label": "Projects",
       "href": "#projects",
       "section": "projects"
     },
@@ -528,7 +554,7 @@
       {
         "title": "Orchestrating 11 ML Models: Lessons from Processing 1000+ Documents Daily",
         "excerpt": "Technical deep-dive into building production-grade AI document processing systems with 99% accuracy at enterprise scale...",
-        "readTime": "10 min read", 
+        "readTime": "10 min read",
         "publishedDate": "Jan 10, 2025",
         "url": "https://medium.com/@ap2/ai-document-processing",
         "thumbnail": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop"
@@ -537,7 +563,7 @@
         "title": "From Code Competitions to $5m+ Enterprise Products: A Technical Journey",
         "excerpt": "How competitive programming shaped my approach to building enterprise solutions that drive real business value...",
         "readTime": "6 min read",
-        "publishedDate": "Jan 5, 2025", 
+        "publishedDate": "Jan 5, 2025",
         "url": "https://medium.com/@ap2/competitive-programming-to-enterprise",
         "thumbnail": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop"
       },

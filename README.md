@@ -11,6 +11,7 @@
 ## 🚀 Features
 
 ### 🎯 Core Functionality
+
 - **Professional Showcase**: Comprehensive portfolio with projects, achievements, and 9 years of experience
 - **Interactive Certificates**: Local certificate integration with modal viewing for achievements
 - **Expandable Achievements**: Show/hide functionality with initial display of 6 achievements
@@ -20,6 +21,7 @@
 - **Legal Compliance**: GDPR/CCPA compliant Privacy Policy and Terms of Use
 
 ### 🏗️ Technical Architecture
+
 - **Angular 20 Standalone Components**: Modern component architecture without NgModules
 - **Signal-Based State Management**: Reactive programming with Angular signals
 - **Zero Data Duplication**: Hierarchical JSON structure with reference resolution system
@@ -27,6 +29,7 @@
 - **SEO Optimized**: Dynamic meta tags, structured data, and sitemap generation
 
 ### 🎨 User Experience
+
 - **Professional Achievements**: Reward-style badges with local certificate integration and modal viewing
 - **Career Highlights**: Justified text with Material Design arrow icons for enhanced readability
 - **Smart Project Categorization**: Dynamic tabs with intelligent display logic
@@ -37,10 +40,12 @@
 ## 📋 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ and npm
 - Angular CLI 20+
 
 ### Development Setup
+
 ```bash
 # Clone repository
 git clone https://github.com/nextjedi/Portfolio-me.git
@@ -57,6 +62,7 @@ npm start
 ```
 
 ### Build & Deploy
+
 ```bash
 # Build for production
 npm run build
@@ -72,6 +78,7 @@ git push origin master
 ## 🏗️ Project Structure
 
 ### Core Architecture
+
 ```
 src/
 ├── app/
@@ -97,6 +104,7 @@ src/
 ```
 
 ### Data Architecture
+
 ```
 public/
 ├── data/
@@ -112,17 +120,20 @@ public/
 ## 📋 Portfolio Data Structure
 
 ### Comprehensive Documentation
+
 For detailed information about the `portfolio.json` structure, reference system, and data management, see:
 
 **📖 [PORTFOLIO-STRUCTURE.md](PORTFOLIO-STRUCTURE.md)**
 
 ### Key Features
+
 - **Reference Resolution System**: Eliminates data duplication with `@shared.path.to.value` references
 - **Hierarchical Organization**: Structured categories for projects, skills, and achievements
 - **Certificate Integration**: Local asset management with modal viewing capabilities
 - **Type Safety**: Full TypeScript interface support for all data structures
 
 ### Recent Updates
+
 - ✨ **Enhanced Hero Section**: Updated with SDE-III title and passionate tagline
 - 🏆 **Certificate Integration**: Local certificate assets with modal viewing
 - 📊 **Expandable Achievements**: Progressive disclosure with show/hide functionality
@@ -132,6 +143,7 @@ For detailed information about the `portfolio.json` structure, reference system,
 ## 🔧 Key Technologies
 
 ### Frontend Stack
+
 - **Angular 20**: Latest framework with standalone components
 - **TypeScript 5.0**: Type-safe development
 - **Angular Material**: Professional UI components
@@ -139,6 +151,7 @@ For detailed information about the `portfolio.json` structure, reference system,
 - **CSS Custom Properties**: Dynamic theming system
 
 ### Development Tools
+
 - **Angular CLI**: Project scaffolding and build system
 - **Jasmine & Karma**: Unit testing framework
 - **ESLint**: Code quality and consistency
@@ -148,12 +161,14 @@ For detailed information about the `portfolio.json` structure, reference system,
 ## 📊 Performance Metrics
 
 ### Target Benchmarks
+
 - **First Contentful Paint**: < 1.5s
 - **Largest Contentful Paint**: < 2.5s
 - **Cumulative Layout Shift**: < 0.1
 - **First Input Delay**: < 100ms
 
 ### Optimization Features
+
 - Lazy loading with intersection observers
 - Optimized images with responsive sizing
 - Minimal bundle splitting
@@ -163,9 +178,11 @@ For detailed information about the `portfolio.json` structure, reference system,
 ## 🚀 Deployment
 
 ### Automatic Deployment
+
 Every push to `master` branch automatically deploys to Vercel via GitHub Actions.
 
 ### Manual Deployment
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -175,7 +192,9 @@ vercel --prod
 ```
 
 ### Environment Setup
+
 Configure these environment variables in Vercel:
+
 ```
 GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 CONTACT_EMAIL=arunabhmaster@gmail.com
@@ -184,6 +203,7 @@ CONTACT_EMAIL=arunabhmaster@gmail.com
 ## 📈 SEO & Analytics
 
 ### Built-in SEO Features
+
 - Dynamic meta tags for all pages
 - JSON-LD structured data
 - Automatic sitemap generation
@@ -191,6 +211,7 @@ CONTACT_EMAIL=arunabhmaster@gmail.com
 - Canonical URL management
 
 ### Analytics Integration
+
 - Google Analytics 4 ready
 - Custom event tracking
 - Performance monitoring
@@ -199,12 +220,14 @@ CONTACT_EMAIL=arunabhmaster@gmail.com
 ## 🎯 Professional Highlights
 
 ### Technical Achievements
+
 - **Enterprise Architecture**: Scalable component design patterns
 - **Performance Optimization**: Sub-2 second loading times
 - **Accessibility Compliance**: WCAG 2.1 AA standards
 - **SEO Excellence**: Structured data and meta optimization
 
 ### Featured Projects
+
 - **Cybersecurity Platform**: Enterprise security solution
 - **Fintech API**: High-performance financial services
 - **E-commerce Platform**: Full-stack retail solution
@@ -226,15 +249,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Arunabh Priyadarshi**  
 Senior Software Engineer SDE-III with 9 years of experience  
-*Developer, coder, hacker, passionate to learn and build stuff that impacts and improves the way we do things for good*
+_Developer, coder, hacker, passionate to learn and build stuff that impacts and improves the way we do things for good_
 
 ### 🏆 Key Achievements
+
 - **Gartner Innovation Tools Team**: Senior developer defining best practices and managing shared code libraries
 - **Microservices & AI**: Architected applications integrating with deep learning models
 - **Code Gladiators**: 3x National Finalist (Top 300 out of 250,000+ developers)
 - **Microsoft Research**: Certified in Design & Analysis of Algorithms
 
 ### 📞 Connect
+
 - **Email**: arunabhmaster@gmail.com
 - **LinkedIn**: [linkedin.com/in/arunabhpriyadarshi](https://linkedin.com/in/arunabhpriyadarshi)
 - **GitHub**: [github.com/nextjedi](https://github.com/nextjedi)
